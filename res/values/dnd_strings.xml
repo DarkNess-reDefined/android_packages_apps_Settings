@@ -622,4 +622,8 @@
     <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
     <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
 
+    <!-- Launch music player when headset is connected -->
+    <string name="headset_connect_player_title">Launch music player</string>
+    <string name="headset_connect_player_summary">Launch the default music player when a headset is connected</string>
+
 </resources>
