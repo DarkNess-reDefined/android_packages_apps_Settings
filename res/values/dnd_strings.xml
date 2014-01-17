@@ -24,4 +24,11 @@
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
 
+    <!-- Root Management -->
+    <string name="rootmanagement_title">Root management</string>
+    <string name="rootmanagement_dashboard_summary">Manage root access</string>
+
+    <!-- Dummy string needed to hide SuperSU from launcher, no need to translate -->
+    <string name="supersu_title">SuperSU</string>
+
 </resources>
