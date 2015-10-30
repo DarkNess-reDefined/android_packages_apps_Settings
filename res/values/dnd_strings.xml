@@ -31,6 +31,7 @@
 	<string name="toast">Toast</string>
 	<string name="listview">ListView</string>
 	<string name="icons">Icons</string>
+	<string name="general">General</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -171,5 +172,10 @@
    <!-- Bluetooth status -->
     <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
     <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if availible.</string>
+
+    <!-- Hide Apps from Recents -->
+    <string name="hide_apps_from_recents_title">Hidden apps</string>
+    <string name="hide_from_recents_add_app">Add App</string>
+    <string name="hide_apps_from_recents_summary">Pick which apps to exclude from the recents panel</string>
 
 </resources>
