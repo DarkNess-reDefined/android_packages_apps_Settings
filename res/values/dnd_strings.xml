@@ -21,4 +21,7 @@
     <string name="build_date">Build date</string>
     <string name="build_date_default">2015-01-01-0000</string>
 
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
+
 </resources>
