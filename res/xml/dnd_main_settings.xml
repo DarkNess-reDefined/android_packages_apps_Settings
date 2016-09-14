@@ -41,4 +41,12 @@
             android:title="@string/recents_settings_title"
             android:icon="@drawable/dnd_recents_icon" />
 
+    <!-- Button Settings -->
+    <PreferenceScreen
+            android:key="button_settings"
+            android:title="@string/button_settings"
+            android:fragment="com.android.settings.dnd.ButtonSettings" 
+            android:icon="@drawable/dnd_buttons_icon"
+            />
+
 </PreferenceScreen>
