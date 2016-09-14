@@ -22,7 +22,7 @@
 
      <PreferenceScreen
                 android:id="@+id/status_bar_settings"
-                android:title="@string/rr_statusbar_title"
+                android:title="@string/dnd_statusbar_title"
                 android:fragment="com.android.settings.dnd.StatusBarSettings"
                 android:icon="@drawable/dnd_statusbar_icon"
                 />

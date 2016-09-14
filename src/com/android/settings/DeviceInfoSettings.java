@@ -145,7 +145,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 getResources().getBoolean(R.bool.def_hide_kernel_version_name)));
         setValueSummary(KEY_MBN_VERSION, PROPERTY_MBN_VERSION);
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_MBN_VERSION,
-                PROPERTY_MBN_VERSION);
+PROPERTY_MBN_VERSION);
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
