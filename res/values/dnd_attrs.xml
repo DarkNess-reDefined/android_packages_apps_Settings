@@ -1,0 +1,8 @@
+ <?xml version="1.0" encoding="utf-8"?>
+  <resources>
+    <!-- ColorPicker -->
+    <declare-styleable name="ColorPickPref">
+        <attr name="alphaSlider" format="boolean" />
+        <attr name="alphaText" format="boolean" />
+        <attr name="colorgroupname" format="string" />
+    </declare-styleable>
