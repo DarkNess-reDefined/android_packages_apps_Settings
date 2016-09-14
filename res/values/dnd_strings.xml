@@ -27,10 +27,10 @@
 	<string name="recents_settings_title">Recents Settings</string>
 	<string name="animation_title">Animations</string>
 	<string name="button_settings">Buttons</string>
-
-       <string name="system_animations">System Animations</string>
-        <string name="toast">Toast</string>
-        <string name="listview">ListView</string>
+	<string name="system_animations">System Animations</string>
+	<string name="toast">Toast</string>
+	<string name="listview">ListView</string>
+	<string name="icons">Icons</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -167,5 +167,9 @@
     <string name="dashboard_category">Dashboard options</string>
     <string name="disable_suggestions_title">Disable suggestions</string>
     <string name="disable_suggestions_summary">Disable the suggestions that appear on top of the dashboard</string>
+
+   <!-- Bluetooth status -->
+    <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
+    <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if availible.</string>
 
 </resources>
