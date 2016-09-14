@@ -138,4 +138,8 @@
    <string name="menu_show_substratum_icons">Show icon overlays</string>
    <string name="menu_hide_substratum_icons">Hide icon overlays</string>
 
+    <!-- About device screen, CPU and RAM info. -->
+    <string name="cpu_info">CPU</string>
+    <string name="mem_info">RAM</string>
+
 </resources>
