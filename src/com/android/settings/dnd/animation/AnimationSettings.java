@@ -19,7 +19,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import com.android.internal.util.rr.AwesomeAnimationHelper;
+import com.android.internal.util.dnd.AwesomeAnimationHelper;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -49,6 +49,7 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
       ListPreference mWallpaperIntraOpen;
       ListPreference mWallpaperIntraClose;
       SwitchPreference mAnimNoOverride;
+	  private ListPreference mToastAnimation;
   
       private int[] mAnimations;
       private String[] mAnimationsStrings;
@@ -58,7 +59,7 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.dnd_animation_settings);
+        addPreferencesFromResource(R.xml.rr_animation_settings);
 
           PreferenceScreen prefs = getPreferenceScreen();
           mAnimations = AwesomeAnimationHelper.getAnimationsList();
@@ -134,6 +135,13 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
           mWallpaperIntraClose.setEntries(mAnimationsStrings);
           mWallpaperIntraClose.setEntryValues(mAnimationsNum);
 
+          mToastAnimation = (ListPreference) findPreference(KEY_TOAST_ANIMATION);
+          mToastAnimation.setSummary(mToastAnimation.getEntry());
+          int CurrentToastAnimation = Settings.System.getInt(getContentResolver(), Settings.System.TOAST_ANIMATION, 1);
+          mToastAnimation.setValueIndex(CurrentToastAnimation); //set to index of default value
+          mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+          mToastAnimation.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -143,43 +151,59 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[0], val);
+			  return true;
           } else if (preference == mActivityClosePref) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[1], val);
+			  return true;
           } else if (preference == mTaskOpenPref) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[2], val);
+			  return true;
           } else if (preference == mTaskClosePref) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[3], val);
+			  return true;
           } else if (preference == mTaskMoveToFrontPref) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[4], val);
+			  return true;
           } else if (preference == mTaskMoveToBackPref) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[5], val);
+			  return true;
           } else if (preference == mWallpaperOpen) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[6], val);
+			  return true;
           } else if (preference == mWallpaperClose) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[7], val);
+			  return true;
           } else if (preference == mWallpaperIntraOpen) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[8], val);
+			  return true;
           } else if (preference == mWallpaperIntraClose) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
-          }
+			  return true;
+          } else if (preference == mToastAnimation) {
+              int index = mToastAnimation.findIndexOfValue((String) newValue);
+              Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
+              mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
+              Toast.makeText(mContext, "Toast Test", Toast.LENGTH_SHORT).show();
+              return true;
+         }
           preference.setSummary(getProperSummary(preference));
 
         return false;
