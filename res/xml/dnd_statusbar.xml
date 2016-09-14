@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 RR
+<!-- Copyright (C) 2017 DarkNess reDefined
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -25,5 +25,15 @@
             android:fragment="com.android.settings.dnd.fragments.NetworkTraffic"
             android:title="@string/network_traffic_title" />
 
+
+    <PreferenceCategory
+        android:title="@string/icons">
+        <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
+    	   android:key="bluetooth_show_battery"
+           android:title="@string/bluetooth_battery_title"
+           android:summary="@string/bluetooth_battery_summary"
+           android:defaultValue="false" />
+  
+      </PreferenceCategory>
 
 </PreferenceScreen>
