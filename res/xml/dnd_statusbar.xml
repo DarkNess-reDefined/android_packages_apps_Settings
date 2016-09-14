@@ -20,4 +20,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/dnd_statusbar_title">
 
+    <PreferenceScreen
+            android:key="network_traffic_state"
+            android:fragment="com.android.settings.dnd.fragments.NetworkTraffic"
+            android:title="@string/network_traffic_title" />
+
+
 </PreferenceScreen>
