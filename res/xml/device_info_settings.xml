@@ -155,6 +155,18 @@
                 settings:allowDividerAbove="true"
                 settings:allowDividerBelow="true" />
 
+        <!-- Device cpu info -->
+        <Preference android:key="device_cpu"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/cpu_info"
+                android:summary="@string/device_info_default"/>
+
+        <!-- Device mem info -->
+        <Preference android:key="device_memory"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/mem_info"
+                android:summary="@string/device_info_default"/>
+
         <!-- Detailed build version -->
         <Preference android:key="build_number"
                 android:enabled="false"
