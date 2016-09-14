@@ -61,7 +61,7 @@
         </PreferenceScreen>
 
         <!-- Device name -->
-        <Preference android:key="device_name"
+        <Preference android:key="device_name"/>
 
         <!-- Device hardware model -->
         <Preference android:key="device_model"
@@ -124,6 +124,14 @@
                 android:summary="@string/device_info_default"
                 settings:allowDividerAbove="true"
                 settings:allowDividerBelow="true"/>
+
+
+        <!-- Device MBN version -->
+        <Preference android:key="mbn_version"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/mbn_version"
+				android:summary="@string/device_info_default"/>
 
         <!-- Device Kernel version -->
         <com.android.settings.DividerPreference

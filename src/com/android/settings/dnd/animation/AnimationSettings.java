@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.SwitchPreference;
+import android.os.SystemProperties;
+import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,13 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
       private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
       private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
       private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+	  private static final String KEY_TOAST_ANIMATION = "toast_animation";
+	
+
+      private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
+      private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
+
+      private static final String SCROLLINGCACHE_DEFAULT = "2";
   
       ListPreference mActivityOpenPref;
       ListPreference mActivityClosePref;
@@ -62,6 +70,7 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
 	  private ListPreference mToastAnimation;
       private ListPreference mListViewAnimation;
       private ListPreference mListViewInterpolator;
+	  private ListPreference mScrollingCachePref;
   
       private int[] mAnimations;
       private String[] mAnimationsStrings;
@@ -74,12 +83,10 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_animation_settings);
         addPreferencesFromResource(R.xml.dnd_animation_settings);
 	    mContext = getActivity().getApplicationContext();
 		mContentRes = getActivity().getContentResolver();
 
-          PreferenceScreen prefs = getPreferenceScreen();
           mAnimations = AwesomeAnimationHelper.getAnimationsList();
           int animqty = mAnimations.length;
           mAnimationsStrings = new String[animqty];
@@ -179,13 +186,18 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
           mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
           mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
           mListViewInterpolator.setOnPreferenceChangeListener(this);
-          mListViewInterpolator.setEnabled(listviewanimation > 0
+          mListViewInterpolator.setEnabled(listviewanimation > 0);
+
+	     mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
+         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
+                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+         mScrollingCachePref.setOnPreferenceChangeListener(this);
 
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
+		  boolean result = false;
           if (preference == mActivityOpenPref) {
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
