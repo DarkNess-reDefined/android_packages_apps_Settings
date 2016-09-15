@@ -170,5 +170,11 @@
                 android:summary="@string/disable_suggestions_summary"
                 android:defaultValue="false" />
 
+        <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
+                android:key="remove_tile_summary"
+                android:title="@string/remove_tile_summaries_title"
+                android:summary="@string/remove_tile_summaries_summary"
+                android:defaultValue="false" />
+
         </PreferenceCategory>
 </PreferenceScreen>
