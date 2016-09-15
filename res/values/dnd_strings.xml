@@ -164,11 +164,6 @@
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
 
- <!-- Dashboard suggestions -->
-    <string name="dashboard_category">Dashboard options</string>
-    <string name="disable_suggestions_title">Disable suggestions</string>
-    <string name="disable_suggestions_summary">Disable the suggestions that appear on top of the dashboard</string>
-
    <!-- Bluetooth status -->
     <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
     <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if availible.</string>
@@ -190,4 +185,19 @@
    <string name="disable_immersive_message_title">Disable Immersive Mode Messages</string>
    <string name="disable_immersive_message_summary">This will hide all Immersive Mode Messages</string>
 
+    <!-- Power menu Animations  -->
+    <string name="power_menu_animation_title">Power menu animation</string>
+    <string name="power_menu_animation_summary">Change the enter/exit animation of the power menu</string>
+    <string name="power_menu_animation_dialog_title">Select power menu animation</string>
+    <string name="power_menu_animation_aosp">AOSP (default)</string>
+    <string name="power_menu_animation_bottom">Bottom</string>
+    <string name="power_menu_animation_top">Top</string>
+
+ 	<!-- Dashboard suggestions -->
+    <string name="dashboard_category">Dashboard options</string>
+    <string name="disable_suggestions_title">Disable suggestions</string>
+    <string name="disable_suggestions_summary">Disable the suggestions that appear on top of the dashboard</string>
+    <string name="remove_tile_summaries_title">Remove tile summaries</string>
+    <string name="remove_tile_summaries_summary">Remove tiles summaries that display underneath tile titles</string>
+ 
 </resources>
