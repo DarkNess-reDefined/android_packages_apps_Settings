@@ -44,6 +44,8 @@ import com.android.settingslib.SuggestionParser;
 import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.Tile;
 
+import android.provider.Settings;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,12 +108,80 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     }
 
     public List<Tile> getSuggestions() {
-        return mSuggestions;
+        if ((Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.DISABLE_SUGGESTIONS, 0) == 1)) {
+             return null;
+        } else {
+             return mSuggestions;
+        }
     }
 
     public void setCategoriesAndSuggestions(List<DashboardCategory> categories,
             List<Tile> suggestions) {
         mSuggestions = suggestions;
+    public void setSuggestions(List<Tile> suggestions) {
+        if ((Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.DISABLE_SUGGESTIONS, 0) == 1)) {
+             mSuggestions = null;
+             recountItems();
+        } else {
+             mSuggestions = suggestions;
+             recountItems();
+        };
+    }
+
+    public Tile getTile(ComponentName component) {
+        for (int i = 0; i < mCategories.size(); i++) {
+            for (int j = 0; j < mCategories.get(i).tiles.size(); j++) {
+                Tile tile = mCategories.get(i).tiles.get(j);
+                if (component.equals(tile.intent.getComponent())) {
+                    return tile;
+                }
+            }
+        }
+        return null;
+    }
+
+    public Lte4GEnabler getLte4GEnabler(){
+        return mLte4GEnabler;
+    }
+    public void updateLte4GEnabler(){
+        if(mLte4GEnablerHolder == null) {
+            return;
+        }
+        boolean enabled = isAPMAndSimStateEnable();
+        mLte4GEnablerHolder.itemView.setEnabled(enabled);
+        mLte4GEnablerHolder.title.setEnabled(enabled);
+        mLte4GEnablerHolder.summary.setEnabled(enabled);
+        mLte4GEnablerHolder.sw.setEnabled(enabled);
+        mLte4GEnablerHolder.summary.setVisibility(View.VISIBLE);
+        mLte4GEnablerHolder.icon.setImageResource(enabled ? R.drawable.ic_settings_4g
+            : R.drawable.ic_settings_4g_dis);
+        if(!enabled) {
+            mLte4GEnablerHolder.summary.setText(R.string.lte_4g_settings_disable);
+        } else {
+            mSw.setChecked(mSw.isChecked());
+            set4GEnableSummary(mSw.isChecked());
+        }
+    }
+
+    private boolean isAPMAndSimStateEnable() {
+        return (Settings.System.getInt(mContext.getContentResolver(),
+            Settings.Global.AIRPLANE_MODE_ON, 0) == 0)
+            && mLte4GEnabler.isThereSimReady();
+    }
+
+    private void set4GEnableSummary(boolean enabled) {
+        if (enabled) {
+            mLte4GEnablerHolder.summary.setText(
+               R.string.lte_4g_settings_4genable_summary);
+        } else {
+            mLte4GEnablerHolder.summary.setText(
+               R.string.lte_4g_settings_4gdisable_summary);
+        }
+    }
+
+    public void setCategories(List<DashboardCategory> categories) {
         mCategories = categories;
 
         TypedValue tintColorValue = new TypedValue();
