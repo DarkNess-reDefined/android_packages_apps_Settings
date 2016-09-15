@@ -22,6 +22,7 @@ import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.content.ContentResolver;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.TypedValue;
@@ -43,6 +44,7 @@ import com.android.settings.dashboard.conditional.ConditionAdapterUtils;
 import com.android.settingslib.SuggestionParser;
 import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.Tile;
+import android.provider.Settings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,12 +108,22 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     }
 
     public List<Tile> getSuggestions() {
-        return mSuggestions;
+        if ((Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.DISABLE_SUGGESTIONS, 0) == 1)) {
+             return null;
+        } else {
+             return mSuggestions;
+        }
     }
 
     public void setCategoriesAndSuggestions(List<DashboardCategory> categories,
             List<Tile> suggestions) {
-        mSuggestions = suggestions;
+        if ((Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.DISABLE_SUGGESTIONS, 0) == 1)) {
+             mSuggestions = null;
+        } else {
+             mSuggestions = suggestions;
+        }
         mCategories = categories;
 
         TypedValue tintColorValue = new TypedValue();
