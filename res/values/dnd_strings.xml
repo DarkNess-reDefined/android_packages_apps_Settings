@@ -161,8 +161,8 @@
     <string name="network_traffic_autohide">Auto hide</string>
     <string name="network_traffic_autohide_summary">Hide the traffic monitor when there is no activity</string>
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
-    <string name="network_traffic_hidearrow_title">Hide arrows</string>
-    <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
+    <string name="network_traffic_hidearrow">Hide arrows</string>
+    <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
 
    <!-- Bluetooth status -->
     <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
