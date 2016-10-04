@@ -308,4 +308,8 @@
     <string name="quick_settings_vibrate_title">Vibrate on touch</string>
     <string name="quick_settings_vibrate_summary">Vibrate when touching tiles</string>
 
+   <!-- BT easy toggle  -->
+    <string name="qs_bt_easy_toggle_title">Enable Bluetooth easy toggle</string>
+    <string name="qs_bt_easy_toggle_summary">Enable bluetooth without selection window</string>
+
 </resources>
