@@ -25,7 +25,7 @@ import android.util.Log;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.dnd.Preferences.SeekBarPreference;
 
 public class NetworkTraffic extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener  {
@@ -79,7 +79,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
         mNetTrafficAutohideThreshold = (SeekBarPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
         int netTrafficAutohideThreshold = Settings.System.getInt(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10);
-        mNetTrafficAutohideThreshold.setProgress(netTrafficAutohideThreshold);
+        mNetTrafficAutohideThreshold.setValue(netTrafficAutohideThreshold / 1);
         mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
 
  	// TrafficStats will return UNSUPPORTED if the device does not support it.
