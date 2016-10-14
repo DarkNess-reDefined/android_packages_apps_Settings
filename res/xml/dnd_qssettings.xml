@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/qssettings_title"
+    android:title="@string/dnd_qssettings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
@@ -46,5 +46,11 @@
         android:title="@string/qs_advanced_data_title"
         android:summary="@string/qs_advanced_data_summary"
         android:defaultValue="false" />
+
+    <ListPreference
+        android:key="sysui_qqs_count_key"
+        android:title="@string/sysui_qqs_count_title"
+        android:entries="@array/sysui_qqs_count_entries"
+        android:entryValues="@array/sysui_qqs_count_values" />
 
 </PreferenceScreen>

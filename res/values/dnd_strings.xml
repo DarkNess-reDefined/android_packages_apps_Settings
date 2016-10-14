@@ -316,4 +316,7 @@
     <string name="qs_wifi_easy_toggle_title">Enable WiFi easy toggle</string>
     <string name="qs_wifi_easy_toggle_summary">Enable wifi without selection window</string>
 
+    <!-- Quick settings tiles -->
+    <string name="sysui_qqs_count_title">Small QS tiles</string>
+
 </resources>

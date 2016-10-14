@@ -26,6 +26,11 @@
             android:fragment="com.android.settings.dnd.fragments.NetworkTraffic"
             android:title="@string/network_traffic_title" />
 
+    <PreferenceScreen
+            android:key="qs_settings"
+            android:fragment="com.android.settings.dnd.fragments.QuickSettings"
+            android:title="@string/dnd_qssettings_title" />
+
 
     <PreferenceCategory
         android:title="@string/general_statusbar">
