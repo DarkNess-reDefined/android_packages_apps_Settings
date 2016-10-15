@@ -28,4 +28,9 @@
             android:fragment="com.android.settings.dnd.fragments.PowerMenuSettings"
             android:title="@string/dnd_power_menu_title" />
 
+    <PreferenceScreen
+            android:key="navigation_bar"
+            android:fragment="com.android.settings.dnd.fragments.NavbarSettings"
+            android:title="@string/dnd_navigation_title" />
+
 </PreferenceScreen>
