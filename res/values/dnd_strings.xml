@@ -626,4 +626,8 @@
     <string name="headset_connect_player_title">Launch music player</string>
     <string name="headset_connect_player_summary">Launch the default music player when a headset is connected</string>
 
+    <!-- Battery Tile style -->
+    <string name="status_bar_battery_style_tile_title">Battery tile style</string>
+    <string name="status_bar_battery_style_tile_summary">Sync the same icon style chosen for the statusbar battery</string>
+
 </resources>
