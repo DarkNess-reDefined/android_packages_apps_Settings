@@ -17,4 +17,15 @@
     android:title="@string/dnd_buttons_title"
     android:layout="@layout/tab"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceScreen
+            android:key="hardware_keys"
+            android:fragment="com.android.settings.dnd.fragments.HardwareKeys"
+            android:title="@string/dnd_hardware_keys_title" />
+
+    <PreferenceScreen
+            android:key="powermenu_category"
+            android:fragment="com.android.settings.dnd.fragments.PowerMenuSettings"
+            android:title="@string/dnd_power_menu_title" />
+
 </PreferenceScreen>
