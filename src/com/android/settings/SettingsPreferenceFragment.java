@@ -48,6 +48,8 @@ import com.android.settings.applications.LayoutPreference;
 import com.android.settings.widget.FloatingActionButton;
 import com.android.settingslib.HelpUtils;
 
+import com.android.settings.dnd.Preferences.CustomDialogPref;
+
 import java.util.UUID;
 
 /**
@@ -578,6 +580,9 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
                     .newInstance(preference.getKey());
         } else if (preference instanceof CustomDialogPreference) {
             f = CustomDialogPreference.CustomPreferenceDialogFragment
+                    .newInstance(preference.getKey());
+        } else if (preference instanceof CustomDialogPref) {
+            f = CustomDialogPref.CustomPreferenceDialogFragment
                     .newInstance(preference.getKey());
         } else if (preference instanceof CustomEditTextPreference) {
             f = CustomEditTextPreference.CustomPreferenceDialogFragment
