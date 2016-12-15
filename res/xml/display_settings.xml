@@ -63,7 +63,7 @@
         android:title="@string/display_auto_rotate_title" />
 
     <Preference
-        android:key="font_size"
+        android:key="font_size_preference_screen"
         android:title="@string/title_font_size"
         android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
         settings:keywords="@string/keywords_display_font_size" />
