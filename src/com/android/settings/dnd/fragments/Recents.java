@@ -30,6 +30,7 @@ import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.WindowManagerGlobal;
@@ -49,6 +50,9 @@ import com.android.settings.Utils;
 public class Recents extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String IMMERSIVE_RECENTS = "immersive_recents";
+    private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+    private ListPreference mRecentsClearAllLocation;
+    private SwitchPreference mRecentsClearAll;
 
     private ListPreference mImmersiveRecents;
 
@@ -66,6 +70,14 @@ public class Recents extends SettingsPreferenceFragment implements OnPreferenceC
                 getContentResolver(), Settings.System.IMMERSIVE_RECENTS, 0)));
         mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
         mImmersiveRecents.setOnPreferenceChangeListener(this);
+
+        // clear all recents
+        mRecentsClearAllLocation = (ListPreference) findPreference(RECENTS_CLEAR_ALL_LOCATION);
+        int location = Settings.System.getIntForUser(resolver,
+                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3, UserHandle.USER_CURRENT);
+        mRecentsClearAllLocation.setValue(String.valueOf(location));
+        mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntry());
+        mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
 
     }
 
@@ -87,6 +99,13 @@ public class Recents extends SettingsPreferenceFragment implements OnPreferenceC
                     Integer.valueOf((String) newValue));
             mImmersiveRecents.setValue(String.valueOf(newValue));
             mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
+            return true;
+        } else if (preference == mRecentsClearAllLocation) {
+            int location = Integer.valueOf((String) newValue);
+            int index = mRecentsClearAllLocation.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
+            mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
             return true;
         }
         return false;
