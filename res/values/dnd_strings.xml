@@ -17,5 +17,8 @@
      <!-- About phone screen, reDefined version -->
      <string name="mod_version">reDefined version</string>
      <string name="mod_version_default">Unknown</string>
+
+	<!--reDefining Zone-->
+	 <string name="dnd_title">reDefining Zone</string>
  
  </resources>

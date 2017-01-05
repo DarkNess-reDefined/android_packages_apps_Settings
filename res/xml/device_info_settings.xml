@@ -91,13 +91,6 @@
                 android:title="@string/mod_version"
                 android:summary="@string/mod_version_default" />
 
-        <!-- CyanogenMod API Version -->
-        <Preference android:key="mod_api_level"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:title="@string/mod_api_level"
-                android:summary="@string/mod_api_level_default" />
-
         <!-- Security patch level -->
         <PreferenceScreen android:key="security_patch"
                 android:title="@string/security_patch"
@@ -116,13 +109,6 @@
                 android:summary="@string/device_info_default"
                 settings:allowDividerAbove="true"
                 settings:allowDividerBelow="true"/>
-
-        <!-- Device MBN version -->
-        <Preference android:key="mbn_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:title="@string/mbn_version"
-                android:summary="@string/device_info_default"/>
 
         <!-- Device Baseband version -->
         <com.android.settings.DividerPreference
