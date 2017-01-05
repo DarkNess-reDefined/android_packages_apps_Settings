@@ -23,7 +23,7 @@
 -keep class com.android.settings.display.NightDisplaySettings
 
 -keep class com.android.settings.cyanogenmod.*Settings
-
+-keep class  com.android.settings.dnd.**
 # Keep click responders
 -keepclassmembers class com.android.settings.inputmethod.UserDictionaryAddWordActivity {
   *** onClick*(...);
