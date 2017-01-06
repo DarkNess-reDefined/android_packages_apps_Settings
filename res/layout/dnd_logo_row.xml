@@ -16,9 +16,11 @@
     android:layout_height="wrap_content"
     android:gravity="center" >
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/dnd_banner"
-         />
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dnd_banner"
+	android:adjustViewBounds="true"
+	android:scaleType="centerInside"
+        android:tint="?android:attr/colorAccent" />
 </LinearLayout> 
 
