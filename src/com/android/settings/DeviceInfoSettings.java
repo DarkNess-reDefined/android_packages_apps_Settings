@@ -78,16 +78,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_SAFETY_LEGAL = "safetylegal";
     private static final String KEY_MBN_VERSION = "mbn_version";
-    private static final String PROPERTY_MBN_VERSION = "persist.mbn.version";
-    private static final String KEY_QGP_VERSION = "qgp_version";
-    private static final String PROPERTY_QGP_VERSION = "persist.qgp.version";
-    private static final String MBN_VERSION_PATH = "/persist/speccfg/mbnversion";
-    private static final String QGP_VERSION_PATH = "/persist/speccfg/qgpversion";
     private static final String KEY_MOD_VERSION = "mod_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_QGP_VERSION = "qgp_version";
+     private static final String PROPERTY_MBN_VERSION = "persist.mbn.version";
     private static final String PROPERTY_QGP_VERSION = "persist.qgp.version";
-    private static final String PROPERTY_MBN_VERSION = "persist.mbn.version";
 	private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
     private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
 	private static final String KEY_DEVICE_CPU = "device_cpu";
