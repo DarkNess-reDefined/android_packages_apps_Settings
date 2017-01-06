@@ -2507,7 +2507,8 @@
 
 	<!-- reDefined settings -->
         <activity android:name="Settings$MainSettingsActivity"
-                android:label="@string/dnd_title">
+                android:label="@string/dnd_title"
+                android:icon="@drawable/ic_dnd_tools_tint">
             <intent-filter android:priority="1">
                 <action android:name="com.android.settings.action.SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
