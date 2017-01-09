@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 RR
-
+<!-- Copyright (C) 2017 DarkNess reDefined
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -40,7 +37,7 @@
              android:key="task_open"
              android:title="@string/task_open_title" />
 
- 		<ListPreference
+	<ListPreference
             android:key="task_open_behind"
             android:title="@string/task_open_behind_title" />
 
@@ -120,12 +117,20 @@
         android:entries="@array/entries_scrollingcache"
         android:entryValues="@array/values_scrollingcache" />
 
-      </PreferenceCategory>
+        <ListPreference
+            android:key="power_menu_animations"
+            android:title="@string/power_menu_animation_title"
+            android:dialogTitle="@string/power_menu_animation_dialog_title"
+            android:entries="@array/power_menu_animations_entries"
+            android:entryValues="@array/power_menu_animations_values"
+            android:summary="@string/power_menu_animation_summary"
+            android:persistent="false" />
 
-     <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
+     <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference   
         android:key="disable_transition_animations"
         android:title="@string/disable_animations"
         android:summary="@string/disable_animations_summary"
         android:defaultValue="false" />
 
+	</PreferenceCategory>
 </PreferenceScreen>
