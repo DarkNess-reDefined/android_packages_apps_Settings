@@ -113,7 +113,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.CRDROID_SETTINGS;
+        return MetricsEvent.APPLICATION;
     }
 
     @Override
