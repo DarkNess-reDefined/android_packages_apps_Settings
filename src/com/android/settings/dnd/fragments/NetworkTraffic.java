@@ -8,7 +8,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.fragments;
+package com.android.settings.dnd.fragments;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
