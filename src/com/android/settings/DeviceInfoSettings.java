@@ -88,7 +88,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 	private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
 
-    static final int TAPS_TO_BE_A_DEVELOPER = 7;
+    static final int TAPS_TO_BE_A_DEVELOPER = -1;
 
     long[] mHits = new long[3];
     int mDevHitCountdown;
@@ -151,7 +151,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_MBN_VERSION, PROPERTY_MBN_VERSION);
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_MBN_VERSION,
 PROPERTY_MBN_VERSION);
-
+        setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
             setStringSummary(KEY_SELINUX_STATUS, status);

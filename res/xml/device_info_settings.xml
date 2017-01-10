@@ -61,10 +61,7 @@
         </PreferenceScreen>
 
         <!-- Device name -->
-        <Preference android:key="device_name"/>
-
-        <!-- Device hardware model -->
-        <Preference android:key="device_model"
+        <Preference android:key="device_name"
                 android:enabled="false"
                 android:shouldDisableView="false"
                 android:title="@string/device_name"
