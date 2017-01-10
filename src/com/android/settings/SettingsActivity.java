@@ -142,6 +142,7 @@ import com.android.settings.dnd.fragments.NavbarSettings;
 import com.android.settings.dnd.fragments.SmartbarSettings;
 import com.android.settings.dnd.fragments.PulseSettings;
 import com.android.settings.dnd.fragments.QuickSettings;
+import com.android.settings.dnd.fragments.AmbientSettings;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -390,7 +391,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
             PulseSettings.class.getName(),
-            QuickSettings.class.getName()
+            QuickSettings.class.getName(),
+            AmbientSettings.class.getName()
     };
 
 
