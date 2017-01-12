@@ -10,7 +10,7 @@
      limitations under the License.
 */
 
-package com.android.settings.dnd;
+package com.android.settings.dnd.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

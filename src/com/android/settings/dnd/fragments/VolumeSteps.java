@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.dnd;
+package com.android.settings.dnd.fragments;
 
 import java.util.HashMap;
 import java.util.HashSet;
