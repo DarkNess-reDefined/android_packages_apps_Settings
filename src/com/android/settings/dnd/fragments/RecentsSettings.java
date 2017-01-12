@@ -9,7 +9,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 */
-package com.android.settings.dnd;
+package com.android.settings.dnd.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
