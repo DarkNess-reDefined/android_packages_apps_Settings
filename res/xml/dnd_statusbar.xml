@@ -49,6 +49,24 @@
     </PreferenceScreen>
 
     <cyanogenmod.preference.CMSystemSettingListPreference
+        android:key="status_bar_battery_style"
+        android:title="@string/status_bar_battery_style_title"
+        android:summary="%s"
+        android:dialogTitle="@string/status_bar_battery_style_title"
+        android:entries="@array/status_bar_battery_style_entries"
+        android:entryValues="@array/status_bar_battery_style_values"
+        android:defaultValue="2" />
+
+    <cyanogenmod.preference.CMSystemSettingListPreference
+        android:key="status_bar_show_battery_percent"
+        android:title="@string/status_bar_battery_percentage_title"
+        android:summary="%s"
+        android:dialogTitle="@string/status_bar_battery_percentage_title"
+        android:entries="@array/status_bar_battery_percentage_entries"
+        android:entryValues="@array/status_bar_battery_percentage_values"
+        android:defaultValue="0" />
+
+    <cyanogenmod.preference.CMSystemSettingListPreference
         android:key="status_bar_clock"
         android:title="@string/status_bar_clock_style_title"
         android:summary="%s"
@@ -90,23 +108,4 @@
         android:title="@string/status_bar_double_tap_to_sleep_title"
         android:summary="@string/status_bar_double_tap_to_sleep_summary"
         android:defaultValue="true" />
-
-    <cyanogenmod.preference.CMSystemSettingListPreference
-        android:key="status_bar_battery_style"
-        android:title="@string/status_bar_battery_style_title"
-        android:summary="%s"
-        android:dialogTitle="@string/status_bar_battery_style_title"
-        android:entries="@array/status_bar_battery_style_entries"
-        android:entryValues="@array/status_bar_battery_style_values"
-        android:defaultValue="2" />
-
-    <cyanogenmod.preference.CMSystemSettingListPreference
-        android:key="status_bar_show_battery_percent"
-        android:title="@string/status_bar_battery_percentage_title"
-        android:summary="%s"
-        android:dialogTitle="@string/status_bar_battery_percentage_title"
-        android:entries="@array/status_bar_battery_percentage_entries"
-        android:entryValues="@array/status_bar_battery_percentage_values"
-        android:defaultValue="0" />
-
 </PreferenceScreen>
