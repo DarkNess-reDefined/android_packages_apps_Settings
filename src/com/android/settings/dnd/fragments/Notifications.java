@@ -34,7 +34,7 @@ import com.android.settings.Utils;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment implements
+public class Notifications extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
 	private static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";

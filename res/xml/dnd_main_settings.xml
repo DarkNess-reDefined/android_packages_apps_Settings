@@ -5,7 +5,7 @@
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
 
-          http://www.apache.org/licenses/LICENSE-2.0
+	          http://www.apache.org/licenses/LICENSE-2.0
 
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,45 +18,32 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:layout="@layout/tab"
     android:title="@string/dnd_title">
 
     <!-- Status Bar -->
      <PreferenceScreen
                 android:id="@+id/status_bar_settings"
                 android:title="@string/dnd_statusbar_title"
-                android:fragment="com.android.settings.dnd.fragments.StatusBarSettings"
-                android:icon="@drawable/dnd_statusbar_icon"
-                />
-
-     <!-- Notification drawer -->
-     <PreferenceScreen
-            android:id="@+id/notification_drawer_settings"
-            android:title="@string/dnd_notification_drawer_title"
-            android:fragment="com.android.settings.dnd.fragments.NotificationDrawerSettings"
-            android:icon="@drawable/dnd_notification_drawer_icon"
-                />
+                android:fragment="com.android.settings.dnd.tabs.StatusBar" />
 
     <!-- Recents Settings -->
     <PreferenceScreen
             android:id="@+id/dnd_recents_settings"
-            android:fragment="com.android.settings.dnd.fragments.RecentsSettings"
-            android:title="@string/dnd_recents_settings_title"
-            android:icon="@drawable/dnd_recents_icon" />
-
-    <!-- Animation Settings -->
-    <PreferenceScreen
-            android:key="animation_settings"
-            android:title="@string/dnd_animation_title"
-            android:fragment="com.android.settings.dnd.animation.AnimationSettings" 
-            android:icon="@drawable/dnd_animations_icon"
-            />
+            android:fragment="com.android.settings.dnd.tabs.Recents"
+            android:title="@string/dnd_recents_settings_title" />
 
 
      <!-- Misc -->
         <PreferenceScreen
             android:key="misc_settings"
             android:title="@string/dnd_misc_title" 
-            android:fragment="com.android.settings.fragments.dnd.fragments.MiscSettings"
-            android:icon="@drawable/dnd_misc_icon"/>
+            android:fragment="com.android.settings.dnd.tabs.Misc" />
+
+     <!-- Ui -->
+        <PreferenceScreen
+            android:key="ui_settings"
+            android:title="@string/dnd_ui_title"
+            android:fragment="com.android.settings.dnd.tabs.Ui" />
 
 </PreferenceScreen>
