@@ -9,7 +9,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 */
-package com.android.settings.dnd.fragments;
+package com.android.settings.dnd.tabs;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -30,14 +30,14 @@ import com.android.settings.Utils;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-public class RecentsSettings extends SettingsPreferenceFragment implements
+public class Recents extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.dnd_recents);
+        addPreferencesFromResource(R.xml.dnd_recents_tab);
     }
 
 

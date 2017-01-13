@@ -19,15 +19,20 @@
    <string name="dnd_mod_version">reDefined version</string>
    <string name="mod_version_default">Unknown</string>
 
-   <!--reDefined Zone-->
+   <!--reDefined Zone Options-->
+   <string name="header_category_personalization">DarkNess reDefined</string>
    <string name="dnd_title">reDefining Zone</string>
    <string name="dnd_statusbar_title">Status Bar</string>
-   <string name="dnd_notification_panel_title">Notification Panel</string>
-   <string name="notification_drawer_title">Notification Drawer</string>
-   <string name="recents_settings_title">Recents Settings</string>
-   <string name="button_settings">Buttons</string>
+   <string name="dnd_ui_title">Ui</string>
+   <string name="dnd_recents_settings_title">Recents</string>
    <string name="dnd_misc_title">Misc</string>
+
+   <!-- Strings -->
+   <string name="general_statusbar">General</string>
    <string name="general">General</string>
+   <string name="dnd_notification_drawer_title">Notification Drawer</string>
+   <string name="dnd_clock_battery_title">Clock and Battery</string>
+   <string name="dnd_qspulldown_title">Quick Settings</string>
 
     <!-- Volume Steps -->
     <string name="volume_steps_title">Volume steps</string>
