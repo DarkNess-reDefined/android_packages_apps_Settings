@@ -1,4 +1,4 @@
-package com.android.settings.dnd.animation;
+package com.android.settings.dnd.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -30,7 +30,7 @@ import java.util.List;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-public class AnimationSettings extends SettingsPreferenceFragment implements
+public class Animations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
 	  private static final String ACTIVITY_OPEN = "activity_open";
@@ -83,7 +83,7 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.dnd_animation_settings);
+       addPreferencesFromResource(R.xml.dnd_animation_settings);
 	    mContext = getActivity().getApplicationContext();
 		mContentRes = getActivity().getContentResolver();
 
