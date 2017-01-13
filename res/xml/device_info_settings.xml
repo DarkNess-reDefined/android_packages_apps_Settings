@@ -89,7 +89,7 @@
         <Preference android:key="mod_version"
                 android:enabled="false"
                 android:shouldDisableView="false"
-                android:title="@string/mod_version"
+                android:title="@string/dnd_mod_version"
                 android:summary="@string/mod_version_default" />
 
         <!-- Security patch level -->
