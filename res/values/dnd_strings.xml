@@ -33,6 +33,7 @@
    <string name="dnd_notification_drawer_title">Notification Drawer</string>
    <string name="dnd_clock_battery_title">Clock and Battery</string>
    <string name="dnd_qspulldown_title">Quick Settings</string>
+   <string name="dnd_qssettings_title">Quick Settings</string>
 
     <!-- Volume Steps -->
     <string name="volume_steps_title">Volume steps</string>
