@@ -25,6 +25,7 @@
 	<string name="dnd_statusbar_title">StatusBar</string>
 	<string name="dnd_ui_title">Ui</string>
 	<string name="dnd_recents_settings_title">Recents</string>
+        <string name="dnd_buttons_title">Buttons</string>
         <string name="dnd_misc_title">Misc</string>
 
        <!-- Strings -->
