@@ -26,6 +26,11 @@
             android:fragment="com.android.settings.dnd.fragments.NetworkTraffic"
             android:title="@string/network_traffic_title" />
 
+    <PreferenceScreen
+            android:key="qs_settings"
+            android:fragment="com.android.settings.dnd.fragments.QuickSettings"
+            android:title="@string/dnd_qssettings_title" />
+
 
     <PreferenceCategory
         android:title="@string/general_statusbar">
@@ -53,11 +58,6 @@
 	android:key="clock_battery"
         android:title="@string/dnd_clock_battery_title"
 	android:fragment="com.android.settings.dnd.fragments.ClockBattery" /> 
-
-    <PreferenceScreen
-        android:key="qspulldown"
-        android:title="@string/dnd_qspulldown_title"
-        android:fragment="com.android.settings.dnd.fragments.QsPullDown" />
 
     <cyanogenmod.preference.CMSystemSettingSwitchPreference
         android:key="status_bar_brightness_control"
