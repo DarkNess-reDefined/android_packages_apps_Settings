@@ -59,11 +59,6 @@
         android:title="@string/dnd_clock_battery_title"
 	android:fragment="com.android.settings.dnd.fragments.ClockBattery" /> 
 
-    <PreferenceScreen
-        android:key="qspulldown"
-        android:title="@string/dnd_qspulldown_title"
-        android:fragment="com.android.settings.dnd.fragments.QsPullDown" />
-
     <cyanogenmod.preference.CMSystemSettingSwitchPreference
         android:key="status_bar_brightness_control"
         android:title="@string/status_bar_toggle_brightness"
