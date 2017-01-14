@@ -322,4 +322,12 @@
     <string name="qs_rows_landscape_title">Rows (landscape)</string>
     <string name="qs_columns_title">Columns</string>
 
+    <!-- Screenshot Tone -->
+    <string name="screenshot_sound_title">Screenshot sound</string>
+    <string name="screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
+
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Swipe to screenshot</string>
+    <string name="three_finger_gesture_summary">Quickly take a screenshot by swiping three fingers across the screen</string>
+
 </resources>
