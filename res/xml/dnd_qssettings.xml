@@ -48,12 +48,6 @@
         android:summary="@string/qs_bt_easy_toggle_summary"
         android:defaultValue="false" />
 
-    <com.android.settings.dnd.Preferences.SecureSettingSwitchPreference
-        android:key="qs_data_advanced"
-        android:title="@string/qs_advanced_data_title"
-        android:summary="@string/qs_advanced_data_summary"
-        android:defaultValue="false" />
-
     <ListPreference
         android:key="sysui_qqs_count_key"
         android:title="@string/sysui_qqs_count_title"

@@ -5,7 +5,7 @@
 	android:title="@string/dnd_hardware_keys_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.android.settings.fragments.dnd.ButtonBacklightBrightness
+    <com.android.settings.dnd.fragments.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:dialogTitle="@string/button_backlight_title"
