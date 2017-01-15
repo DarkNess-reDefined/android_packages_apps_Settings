@@ -46,4 +46,10 @@
             android:title="@string/dnd_ui_title"
             android:fragment="com.android.settings.dnd.tabs.Ui" />
 
+     <!-- Buttons -->
+        <PreferenceScreen
+            android:key="buttonsettings_category"
+            android:title="@string/dnd_buttons_title"
+            android:fragment="com.android.settings.dnd.tabs.Buttons"  />
+
 </PreferenceScreen>
