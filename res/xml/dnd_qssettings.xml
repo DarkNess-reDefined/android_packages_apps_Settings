@@ -24,7 +24,7 @@
         android:dependency="qs_show_brightness"
         android:defaultValue="false"/>
 
-    <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
+    <com.android.settings.dnd.Preferences.SecureSettingSwitchPreference
         android:key="qs_data_advanced"
         android:title="@string/qs_advanced_data_title"
         android:summary="@string/qs_advanced_data_summary"
