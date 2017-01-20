@@ -594,4 +594,7 @@
     <string name="smartbar_config_restore_error_toast">Error restoring Smartbar profile</string>
     <string name="navbar_buttons_alpha_title">Button transparency</string>
 
+    <!-- Pa Battery -->
+    <string name="status_bar_battery_style_solid">Solid</string>
+
 </resources>
