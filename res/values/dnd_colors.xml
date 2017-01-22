@@ -59,5 +59,9 @@ limitations under the License.
     <color name="icon_tint_color">@color/material_deep_teal_500</color>
     <color name="white">#FFF</color>
 
+    <!-- Bluetooth pairing pin confirm dialog -->
+    <color name="bluetooth_pairing_caption">@*android:color/secondary_text_material_light</color>
+    <color name="bluetooth_pairing_code_message">@*android:color/secondary_text_material_light</color>
+    <color name="bluetooth_phonebook_sharing_message_confirm_pin">@*android:color/secondary_text_material_light</color>
 </resources>
 
