@@ -20,8 +20,9 @@
      <string name="mod_version_default">Unknown</string>
 
 	<!--reDefined Zone Options-->
-       <string name="header_category_personalization">DarkNess reDefined</string>
-	<string name="dnd_title">reDefining Zone</string>
+        <string name="header_category_personalization">Personalization</string>
+	<string name="dnd_title">reDefinition Arena</string>
+        <string name="dnd_summary_title">reDefine your device</string>
 	<string name="dnd_statusbar_title">StatusBar</string>
 	<string name="dnd_ui_title">Ui</string>
 	<string name="dnd_recents_settings_title">Recents</string>
