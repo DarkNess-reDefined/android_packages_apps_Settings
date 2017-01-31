@@ -20,8 +20,9 @@
      <string name="mod_version_default">Unknown</string>
 
 	<!--reDefined Zone Options-->
-       <string name="header_category_personalization">DarkNess reDefined</string>
-	<string name="dnd_title">reDefining Zone</string>
+        <string name="header_category_personalization">Personalization</string>
+	<string name="dnd_title">reDefinition Arena</string>
+        <string name="dnd_summary_title">reDefine your device</string>
 	<string name="dnd_statusbar_title">StatusBar</string>
 	<string name="dnd_ui_title">Ui</string>
 	<string name="dnd_recents_settings_title">Recents</string>
@@ -602,5 +603,23 @@
     <!-- Fingerprint authentication vibration -->
     <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
     <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
+
+    <!-- Media art -->
+    <string name="media_art_title">Media cover art</string>
+    <string name="media_art_summary">Enable media cover art on the lockscreen</string>
+
+    <!-- Superuser indicator on status bar -->
+    <string name="show_su_indicator_title">Superuser indicator</string>
+    <string name="show_su_indicator_summary">Show superuser indicator on status bar when a session is active</string>
+
+    <!-- Dashboard suggestions -->
+    <string name="dashboard_category">Dashboard options</string>
+    <string name="disable_suggestions_title">Disable suggestions</string>
+    <string name="disable_suggestions_summary">Disable the suggestions that appear on top of the dashboard</string>
+    <string name="remove_tile_summaries_title">Remove tile summaries</string>
+    <string name="remove_tile_summaries_summary">Remove tiles summaries that display underneath tile titles</string>
+    <string name="dashboard_conditions_title">Dashboard conditions</string>
+    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
+    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
 
 </resources>

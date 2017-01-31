@@ -40,9 +40,8 @@ public class MiscSettings extends SettingsPreferenceFragment
             mFingerprintVib = (SwitchPreference) prefSet.findPreference("fingerprint_success_vib");
             if (!mFingerprintManager.isHardwareDetected()){
                 prefSet.removePreference(mFingerprintVib);
-            }
 
-   {     mScreenshotType = (ListPreference) findPreference(SCREENSHOT_TYPE);
+        mScreenshotType = (ListPreference) findPreference(SCREENSHOT_TYPE);
         int mScreenshotTypeValue = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.SCREENSHOT_TYPE, 0);
         mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
