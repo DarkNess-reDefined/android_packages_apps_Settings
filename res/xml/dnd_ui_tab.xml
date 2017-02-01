@@ -42,4 +42,10 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:defaultValue="true" />
 
+        <ListPreference
+            android:key="screenrecord_chord_type"
+            android:title="@string/screen_record_chord_title"
+            android:entries="@array/screen_record_chord_entries"
+            android:entryValues="@array/screen_record_chord_values" />
+
 </PreferenceScreen>
