@@ -7932,4 +7932,8 @@
     <string name="tether_settings_launch_title">Mobile HotSpot</string>
     <string name="wifi_tether_first_use_message">Set up Mobile HotSpot at the First Use</string>
 
+    <!--  Lockscreen battery info indicator  -->
+    <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
+    <string name="lockscreen_battery_info_summary">Display real time charger current, voltage and battery temperature on lockscreen while charging</string>
+  
 </resources>
