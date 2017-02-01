@@ -42,8 +42,10 @@ public class Ui extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+    private static final String SCREENRECORD_CHORD_TYPE = "screenrecord_chord_type";
 
     private FingerprintManager mFingerprintManager;
+    private ListPreference mScreenrecordChordType;
 
     private SystemSettingSwitchPreference mFingerprintVib;
 
@@ -53,18 +55,52 @@ public class Ui extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.dnd_ui_tab);
 
-        PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        Resources res = getResources();
 
+	// fingerprint vibration
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SystemSettingSwitchPreference) findPreference(FINGERPRINT_VIB);
         if (!mFingerprintManager.isHardwareDetected()){
             prefScreen.removePreference(mFingerprintVib);
+
+        int recordChordValue = Settings.System.getInt(resolver,
+                Settings.System.SCREENRECORD_CHORD_TYPE, 0);
+        mScreenrecordChordType = initActionList(SCREENRECORD_CHORD_TYPE,
+                recordChordValue);
    }
 }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+       if  (preference == mScreenrecordChordType) {
+            handleActionListChange(mScreenrecordChordType, newValue,
+                    Settings.System.SCREENRECORD_CHORD_TYPE);
+
+            return true;
+         }
+        return false;
+    }
+
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.APPLICATION;
+    }
+
+    private ListPreference initActionList(String key, int value) {
+        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
+        list.setValue(Integer.toString(value));
+        list.setSummary(list.getEntry());
+        list.setOnPreferenceChangeListener(this);
+        return list;
+    }
+
+    private void handleActionListChange(ListPreference pref, Object newValue, String setting) {
+        String value = (String) newValue;
+        int index = pref.findIndexOfValue(value);
+        pref.setSummary(pref.getEntries()[index]);
+        Settings.System.putInt(getActivity().getContentResolver(), setting, Integer.valueOf(value));
     }
 
     @Override
@@ -75,10 +111,5 @@ public class Ui extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-     public boolean onPreferenceChange(Preference preference, Object objValue) {
-       final String key = preference.getKey();
-       return true;
     }
 }
