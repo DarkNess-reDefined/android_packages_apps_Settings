@@ -47,7 +47,7 @@ public class Buttons extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.REDEFINITION;
     }
 
     @Override
