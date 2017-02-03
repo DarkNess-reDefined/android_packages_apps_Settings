@@ -222,6 +222,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.REDEFINITION;
     }
 }

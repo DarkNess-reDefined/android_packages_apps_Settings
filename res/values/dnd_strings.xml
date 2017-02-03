@@ -22,6 +22,7 @@
      <string name="substratum_summary">Customize device theme</string>
      <string name="superuser_title">Superuser</string>
      <string name="supersu_summary">Manage root access</string>
+
 	<!--reDefined Zone Options-->
         <string name="header_category_personalization">Personalization</string>
 	<string name="dnd_title">reDefinition Arena</string>
@@ -160,8 +161,9 @@
    <string name="menu_show_substratum_icons">Show icon overlays</string>
    <string name="menu_hide_substratum_icons">Hide icon overlays</string>
 
-    <!-- About device screen, CPU and RAM info. -->
-    <string name="cpu_info">CPU</string>
+    <!-- About phone screen, processor info label -->
+    <string name="processor_info">Processor</string>
+    <!-- RAM: Memory Info -->
     <string name="mem_info">RAM</string>
 
     <!-- Network traffic -->
