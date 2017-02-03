@@ -32,6 +32,9 @@
         <string name="dnd_buttons_title">Buttons</string>
         <string name="dnd_misc_title">Misc</string>
 
+        <!-- OTA -->
+        <string name="slimota_title">DarkNess Updates</string>
+
        <!-- Strings -->
 	<string name="system_animations">System Animations</string>
 	<string name="toast">Toast</string>
