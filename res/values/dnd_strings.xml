@@ -72,6 +72,10 @@
 
     <!-- About device screen, CPU and RAM info. -->
     <string name="cpu_info">CPU</string>
+
+    <!-- About phone screen, processor info label -->
+    <string name="processor_info">Processor</string>
+    <!-- RAM: Memory Info -->
     <string name="mem_info">RAM</string>
 
     <!-- Network traffic -->
