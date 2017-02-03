@@ -33,6 +33,9 @@
    <string name="dnd_buttons_title">Buttons</string>
    <string name="dnd_misc_title">Misc</string>
 
+   <!-- OTA -->
+   <string name="slimota_title">DarkNess Updates</string>
+
    <!-- Strings -->
    <string name="general_statusbar">General</string>
    <string name="general">General</string>
