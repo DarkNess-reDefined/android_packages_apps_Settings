@@ -158,16 +158,18 @@
                 android:title="@string/build_date"
                 android:summary="@string/build_date_default" />
 
-        <!-- Device cpu info -->
-        <Preference android:key="device_cpu"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/cpu_info"
-                android:summary="@string/device_info_default"/>
-
         <!-- Device mem info -->
         <Preference android:key="device_memory"
-                style="?android:preferenceInformationStyle"
+                android:enabled="false"
+                android:shouldDisableView="false"
                 android:title="@string/mem_info"
+                android:summary="@string/device_info_default"/>
+ 
+        <!-- Device soc processor -->
+        <Preference android:key="device_processor"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/processor_info"
                 android:summary="@string/device_info_default"/>
 
         <!-- Detailed build version -->
@@ -186,7 +188,7 @@
         <!-- SELinux status information -->
         <com.android.settings.DividerPreference
                 android:key="selinux_status"
-                android:enabled="false"
+                android:enabled="true"
                 android:shouldDisableView="false"
                 android:selectable="false"
                 android:title="@string/selinux_status"
