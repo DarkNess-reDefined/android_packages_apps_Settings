@@ -22,6 +22,8 @@
      <string name="substratum_summary">Customize device theme</string>
      <string name="superuser_title">Superuser</string>
      <string name="supersu_summary">Manage root access</string>
+     <string name="magisk_title">Magisk Manager</string>
+     <string name="magisk_summary">Root management</string>
 
 	<!--reDefined Zone Options-->
         <string name="header_category_personalization">Personalization</string>
