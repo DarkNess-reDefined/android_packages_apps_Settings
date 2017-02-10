@@ -11,7 +11,7 @@
         android:entryValues="@array/status_bar_quick_qs_pulldown_values"
         android:defaultValue="1" />
 
-    <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
+   <!-- <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
         android:key="qs_show_brightness"
         android:title="@string/qs_brightness_slider_title"
         android:summary="@string/qs_brightness_slider_summary"
@@ -22,7 +22,7 @@
         android:title="@string/brightness_icon_title"
         android:summary="@string/brightness_icon_summary"
         android:dependency="qs_show_brightness"
-        android:defaultValue="false"/>
+        android:defaultValue="false"/> -->
 
     <com.android.settings.dnd.Preferences.SecureSettingSwitchPreference
         android:key="qs_data_advanced"
