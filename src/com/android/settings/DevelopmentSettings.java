@@ -693,7 +693,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
         final ContentResolver cr = getActivity().getContentResolver();
         mLastEnabledState = Settings.Global.getInt(cr,
-                Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
+                Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 1) != 1;
         mSwitchBar.setChecked(mLastEnabledState);
         setPrefsEnabledState(mLastEnabledState);
 
@@ -2311,7 +2311,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             return super.onPreferenceTreeClick(preference);
         }
 
-        return false;
+        return true;
     }
 
     private void startInactiveAppsFragment() {
