@@ -3246,4 +3246,8 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Aplicaciones no instaladas"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Aplicaciones instaladas"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"El Administrador de Almacenamiento gestiona ahora el almacenamiento"</string>
+    <string name="tethering_no_sim_alert_title">No se encuentra la tarjeta SIM</string>
+    <string name="tethering_no_sim_card_text">Por favor inserta la tarjeta SIM para poder compartir tu conexión a internet.</string>
+    <string name="tether_settings_launch_title">Zona portatil</string>
+    <string name="wifi_tether_first_use_message">Configurar la zona portatil como primer uso</string>
 </resources>
