@@ -31,6 +31,12 @@
             android:fragment="com.android.settings.dnd.fragments.QuickSettings"
             android:title="@string/dnd_qssettings_title" />
 
+    <!-- Status bar DND logo -->
+
+    <PreferenceScreen
+        android:key="dnd_logo"
+        android:title="@string/status_bar_dnd_logo_title"
+	android:fragment="com.android.settings.dnd.fragments.Logo" />
 
     <PreferenceCategory
         android:title="@string/general_statusbar">
