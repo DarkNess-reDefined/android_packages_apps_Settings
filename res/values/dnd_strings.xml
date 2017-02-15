@@ -15,40 +15,40 @@
  -->
  <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
  
-     <!-- About phone screen, reDefined version -->
-     <string name="dnd_mod_version">reDefined version</string>
-     <string name="mod_version_default">Unknown</string>
-     <string name="substratum_title">Substratum</string>
-     <string name="substratum_summary">Customize device theme</string>
-     <string name="superuser_title">Superuser</string>
-     <string name="supersu_summary">Manage root access</string>
+    <!-- About phone screen, reDefined version -->
+    <string name="dnd_mod_version">reDefined version</string>
+    <string name="mod_version_default">Unknown</string>
+    <string name="substratum_title">Substratum</string>
+    <string name="substratum_summary">Customize device theme</string>
+    <string name="superuser_title">Superuser</string>
+    <string name="supersu_summary">Manage root access</string>
 
-	<!--reDefined Zone Options-->
-        <string name="header_category_personalization">Personalization</string>
-	<string name="dnd_title">reDefinition Arena</string>
-        <string name="dnd_summary_title">reDefine your device</string>
-	<string name="dnd_statusbar_title">StatusBar</string>
-	<string name="dnd_ui_title">Ui</string>
-	<string name="dnd_recents_settings_title">Recents</string>
-        <string name="dnd_buttons_title">Buttons</string>
-        <string name="dnd_misc_title">Misc</string>
+    <!--reDefined Zone Options-->
+    <string name="header_category_personalization">Personalization</string>
+    <string name="dnd_title">reDefinition Arena</string>
+    <string name="dnd_summary_title">reDefine your device</string>
+    <string name="dnd_statusbar_title">StatusBar</string>
+    <string name="dnd_ui_title">Ui</string>
+    <string name="dnd_recents_settings_title">Recents</string>
+    <string name="dnd_buttons_title">Buttons</string>
+    <string name="dnd_misc_title">Misc</string>
 
-        <!-- OTA -->
-        <string name="slimota_title">DarkNess Updates</string>
+    <!-- OTA -->
+    <string name="slimota_title">DarkNess Updates</string>
 
-       <!-- Strings -->
-	<string name="system_animations">System Animations</string>
-	<string name="toast">Toast</string>
-	<string name="listview">ListView</string>
-	<string name="general_statusbar">General</string>
-	<string name="general">General</string>
-        <string name="dnd_notification_drawer_title">Notification Drawer</string>
-        <string name="dnd_clock_battery_title">Clock and Battery</string>
-        <string name="dnd_qssettings_title">Quick Settings</string>
-        <string name="dnd_animation_title">Animations</string>
-        <string name="dnd_hardware_keys_title">Hardware Keys</string>
-        <string name="dnd_power_menu_title">Power Menu</string>
-        <string name="dnd_navigation_title">Navigation Key</string>
+    <!-- Strings -->
+    <string name="system_animations">System Animations</string>
+    <string name="toast">Toast</string>
+    <string name="listview">ListView</string>
+    <string name="general_statusbar">General</string>
+    <string name="general">General</string>
+    <string name="dnd_notification_drawer_title">Notification Drawer</string>
+    <string name="dnd_clock_battery_title">Clock and Battery</string>
+    <string name="dnd_qssettings_title">Quick Settings</string>
+    <string name="dnd_animation_title">Animations</string>
+    <string name="dnd_hardware_keys_title">Hardware Keys</string>
+    <string name="dnd_power_menu_title">Power Menu</string>
+    <string name="dnd_navigation_title">Navigation Key</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
@@ -151,15 +151,15 @@
     <string name="toast_icon_title">Toast icon</string>
     <string name="toast_icon_summary">Display the app icon corresponding with the toast</string>
 
-   <!-- Manage applications: show substratum overlays -->
-   <string name="filter_substratum_apps">Substratum overlays</string>
-   <string name="menu_show_substratum">Show overlays</string>
-   <string name="menu_hide_substratum">Hide overlays</string>
+    <!-- Manage applications: show substratum overlays -->
+    <string name="filter_substratum_apps">Substratum overlays</string>
+    <string name="menu_show_substratum">Show overlays</string>
+    <string name="menu_hide_substratum">Hide overlays</string>
 
-   <!-- Manage applications: show substratum icon overlays -->
-   <string name="filter_substratum_icons">Substratum icon overlays</string>
-   <string name="menu_show_substratum_icons">Show icon overlays</string>
-   <string name="menu_hide_substratum_icons">Hide icon overlays</string>
+    <!-- Manage applications: show substratum icon overlays -->
+    <string name="filter_substratum_icons">Substratum icon overlays</string>
+    <string name="menu_show_substratum_icons">Show icon overlays</string>
+    <string name="menu_hide_substratum_icons">Hide icon overlays</string>
 
     <!-- About phone screen, processor info label -->
     <string name="processor_info">Processor</string>
@@ -187,7 +187,7 @@
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
 
-   <!-- Bluetooth status -->
+    <!-- Bluetooth status -->
     <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
     <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if availible.</string>
 
@@ -196,17 +196,13 @@
     <string name="hide_from_recents_add_app">Add App</string>
     <string name="hide_apps_from_recents_summary">Pick which apps to exclude from the recents panel</string>
 
-    <!-- Bluetooth status -->
-    <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
-    <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if availible.</string>
+    <!-- Force expanded notifications -->
+    <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
+    <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
 
-   <!-- Force expanded notifications -->
-   <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
-   <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
-
-   <!-- Disabling immersive mode messages -->
-   <string name="disable_immersive_message_title">Disable Immersive Mode Messages</string>
-   <string name="disable_immersive_message_summary">This will hide all Immersive Mode Messages</string>
+    <!-- Disabling immersive mode messages -->
+    <string name="disable_immersive_message_title">Disable Immersive Mode Messages</string>
+    <string name="disable_immersive_message_summary">This will hide all Immersive Mode Messages</string>
 
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_style_title">Battery status style</string>
@@ -396,11 +392,11 @@
     <string name="qs_advanced_data_title">Advanced data tile</string>
     <string name="qs_advanced_data_summary">Enable one tap action to enable or disable data</string>
  
-   <!-- QuickSettings haptic feedback -->
+    <!-- QuickSettings haptic feedback -->
     <string name="quick_settings_vibrate_title">Vibrate on touch</string>
     <string name="quick_settings_vibrate_summary">Vibrate when touching tiles</string>
 
-   <!-- BT easy toggle  -->
+    <!-- BT easy toggle  -->
     <string name="qs_bt_easy_toggle_title">Enable Bluetooth easy toggle</string>
     <string name="qs_bt_easy_toggle_summary">Enable bluetooth without selection window</string>
 
