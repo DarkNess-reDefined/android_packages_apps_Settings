@@ -3089,7 +3089,7 @@
                  <category android:name="android.intent.category.DEFAULT" />
              </intent-filter>
              <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                 android:value=" com.android.settings.dnd.fragments.FlingSettings" />
+                 android:value="com.android.settings.dnd.fragments.FlingSettings" />
          </activity>
  
          <!-- Pulse settings activity. -->
@@ -3101,7 +3101,7 @@
                  <category android:name="android.intent.category.DEFAULT" />
              </intent-filter>
              <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                 android:value=" com.android.settings.dnd.fragments.PulseSettings" />
+                 android:value="com.android.settings.dnd.fragments.PulseSettings" />
          </activity>
  
         <!-- System action picker -->
