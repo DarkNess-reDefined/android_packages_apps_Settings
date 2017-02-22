@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:key="hardware_keys"
-	android:title="@string/dnd_hardware_keys_title"
+        android:key="hardware_keys_settings"
+	android:title="@string/dnd_hardware_keys_settings_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <com.android.settings.dnd.fragments.ButtonBacklightBrightness
@@ -21,6 +21,16 @@
             android:summary="@string/power_end_call_summary"
             android:persistent="false"/>
 
+    </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="hardware_keys"
+        android:title="@string/hardware_keys_category" >
+
+        <SwitchPreference
+            android:key="hardware_keys_disable"
+            android:title="@string/hardware_keys_disable_title"
+            android:summary="@string/hardware_keys_disable_summary" />
     </PreferenceCategory>
 
     <PreferenceCategory
