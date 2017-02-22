@@ -454,6 +454,11 @@ public class HardwareKeys extends ActionFragment
     }
 
     @Override
+    protected boolean usesExtendedActionsList() {
+        return true;
+    }
+
+    @Override
     protected int getMetricsCategory() {
         return MetricsEvent.REDEFINITION;
     }
