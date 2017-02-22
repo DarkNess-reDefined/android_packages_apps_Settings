@@ -39,6 +39,11 @@
             android:persistent="false"/>
 
         <com.android.settings.dnd.Preferences.ActionPreference
+            android:key="hwkeys_button_home_single_tap"
+            android:summary="@string/hardware_keys_single_tap_summary"
+            android:title="@string/hardware_keys_single_tap_title" />
+
+        <com.android.settings.dnd.Preferences.ActionPreference
             android:key="hwkeys_button_home_long_press"
             android:summary="@string/hardware_keys_long_press_summary"
             android:title="@string/hardware_keys_long_press_title" />
@@ -63,6 +68,11 @@
             android:key="kill_app_longpress_back"
             android:title="@string/kill_app_longpress_back"
             android:summary="@string/kill_app_longpress_back_summary"/>
+
+        <com.android.settings.dnd.Preferences.ActionPreference
+            android:key="hwkeys_button_back_single_tap"
+            android:summary="@string/hardware_keys_single_tap_summary"
+            android:title="@string/hardware_keys_single_tap_title" />
 
         <com.android.settings.dnd.Preferences.ActionPreference
             android:key="hwkeys_button_back_long_press"
