@@ -9,7 +9,6 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.provider.Settings;
@@ -26,6 +25,7 @@ import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.utils.du.ActionConstants;
 import com.android.settings.DevelopmentSettings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -39,14 +39,12 @@ import java.util.List;
 
 import org.cyanogenmod.internal.util.ScreenType;
 
-public class HardwareKeys extends SettingsPreferenceFragment
+public class HardwareKeys extends ActionFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
-    private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
-    private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
     private static final String KEY_MENU_PRESS = "hardware_keys_menu_press";
     private static final String KEY_MENU_LONG_PRESS = "hardware_keys_menu_long_press";
     private static final String KEY_ASSIST_PRESS = "hardware_keys_assist_press";
@@ -107,8 +105,6 @@ public class HardwareKeys extends SettingsPreferenceFragment
     public static final int KEY_MASK_CAMERA = 0x20;
     public static final int KEY_MASK_VOLUME = 0x40;
 
-    private ListPreference mHomeLongPressAction;
-    private ListPreference mHomeDoubleTapAction;
     private ListPreference mMenuPressAction;
     private ListPreference mMenuLongPressAction;
     private ListPreference mAssistPressAction;
@@ -124,8 +120,6 @@ public class HardwareKeys extends SettingsPreferenceFragment
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
-
-    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -183,8 +177,6 @@ public class HardwareKeys extends SettingsPreferenceFragment
         // Home button answers calls.
         mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
 
-        mHandler = new Handler();
-
         if (hasPowerKey) {
             if (!TelephonyUtils.isVoiceCapable(getActivity())) {
                 powerCategory.removePreference(mPowerEndCall);
@@ -203,22 +195,6 @@ public class HardwareKeys extends SettingsPreferenceFragment
                 homeCategory.removePreference(mHomeAnswerCall);
                 mHomeAnswerCall = null;
             }
-
-            Action defaultLongPressAction = Action.fromIntSafe(res.getInteger(
-                    com.android.internal.R.integer.config_longPressOnHomeBehavior));
-
-            Action defaultDoubleTapAction = Action.fromIntSafe(res.getInteger(
-                    com.android.internal.R.integer.config_doubleTapOnHomeBehavior));
-
-            Action longPressAction = Action.fromSettings(resolver,
-                    CMSettings.System.KEY_HOME_LONG_PRESS_ACTION,
-                    defaultLongPressAction);
-            mHomeLongPressAction = initActionList(KEY_HOME_LONG_PRESS, longPressAction);
-
-            Action doubleTapAction = Action.fromSettings(resolver,
-                    CMSettings.System.KEY_HOME_DOUBLE_TAP_ACTION,
-                    defaultDoubleTapAction);
-            mHomeDoubleTapAction = initActionList(KEY_HOME_DOUBLE_TAP, doubleTapAction);
 
             hasAnyBindableKey = true;
         } else {
@@ -311,6 +287,11 @@ public class HardwareKeys extends SettingsPreferenceFragment
                 volumeCategory.removePreference(findPreference(CMSettings.System.VOLUME_WAKE_SCREEN));
             }
 
+            if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+                volumeCategory.removePreference(
+                        findPreference(CMSettings.System.VOLUME_ANSWER_CALL));
+            }
+
             int cursorControlAction = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
             mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
@@ -348,6 +329,10 @@ public class HardwareKeys extends SettingsPreferenceFragment
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
+
+        // let super know we can load ActionPreferences
+        onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.HWKEYS));
+
     }
 
     @Override
@@ -392,27 +377,19 @@ public class HardwareKeys extends SettingsPreferenceFragment
         String value = (String) newValue;
         int index = pref.findIndexOfValue(value);
         pref.setSummary(pref.getEntries()[index]);
-        CMSettings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
+        CMSettings.System.putInt(getContentResolver(), setting, Integer.parseInt(value));
     }
 
     private void handleSystemActionListChange(ListPreference pref, Object newValue, String setting) {
         String value = (String) newValue;
         int index = pref.findIndexOfValue(value);
         pref.setSummary(pref.getEntries()[index]);
-        Settings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
+        Settings.System.putInt(getContentResolver(), setting, Integer.parseInt(value));
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mHomeLongPressAction) {
-            handleActionListChange(mHomeLongPressAction, newValue,
-                    CMSettings.System.KEY_HOME_LONG_PRESS_ACTION);
-            return true;
-        } else if (preference == mHomeDoubleTapAction) {
-            handleActionListChange(mHomeDoubleTapAction, newValue,
-                    CMSettings.System.KEY_HOME_DOUBLE_TAP_ACTION);
-            return true;
-        } else if (preference == mMenuPressAction) {
+        if (preference == mMenuPressAction) {
             handleActionListChange(mMenuPressAction, newValue,
                     CMSettings.System.KEY_MENU_ACTION);
             return true;
@@ -481,3 +458,4 @@ public class HardwareKeys extends SettingsPreferenceFragment
         return MetricsEvent.REDEFINITION;
     }
 }
+
