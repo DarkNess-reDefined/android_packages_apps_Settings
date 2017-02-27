@@ -36,4 +36,8 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:defaultValue="true" />
 
+        <com.android.settings.display.DensityPreference
+            android:key="density"
+            android:title="@string/developer_smallest_width" />
+
 </PreferenceScreen>
