@@ -17,12 +17,6 @@
 	android:title="@string/dnd_misc_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <!-- Volume Steps -->
-        <Preference
-                android:key="volume_steps"
-                android:title="@string/volume_steps_title"
-                android:fragment="com.android.settings.dnd.fragments.VolumeSteps" />
-
     <!-- Screenshot tone -->
     <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
         android:key="screenshot_sound"
@@ -41,5 +35,21 @@
         android:title="@string/show_su_indicator_title"
         android:summary="@string/show_su_indicator_summary"
         android:defaultValue="true" />
+
+       <PreferenceCategory
+            android:key="category_recents"
+            android:title="@string/recents_category_title">
+
+     <!-- Hide recent -->
+     <PreferenceScreen
+         android:key="hide_app_from_recents"
+         android:title="@string/hide_apps_from_recents_title"
+         android:summary="@string/hide_apps_from_recents_summary" >
+         <intent android:action="android.intent.action.MAIN"
+         android:targetPackage="com.android.settings"
+         android:targetClass="com.android.settings.dnd.recentshidden.HAFRAppListActivity" />
+         </PreferenceScreen>
+
+       </PreferenceCategory>
 
 </PreferenceScreen>

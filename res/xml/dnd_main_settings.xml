@@ -27,12 +27,6 @@
                 android:title="@string/dnd_statusbar_title"
                 android:fragment="com.android.settings.dnd.tabs.StatusBar" />
 
-    <!-- Recents Settings -->
-    <PreferenceScreen
-            android:id="@+id/dnd_recents_settings"
-            android:fragment="com.android.settings.dnd.tabs.Recents"
-            android:title="@string/dnd_recents_settings_title" />
-
      <!-- Misc -->
         <PreferenceScreen
             android:key="misc_settings"

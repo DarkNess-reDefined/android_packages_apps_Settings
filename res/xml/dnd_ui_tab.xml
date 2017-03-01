@@ -22,6 +22,7 @@
       <PreferenceScreen
             android:id="@+id/notification_drawer_settings"
             android:title="@string/dnd_notification_drawer_title"
+            android:summary="@string/notification_drawer_summary"
             android:fragment="com.android.settings.dnd.fragments.Notifications" />
 
      <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
@@ -29,12 +30,6 @@
             android:title="@string/three_finger_gesture"
             android:summary="@string/three_finger_gesture_summary"
             android:defaultValue="false" />
-
-    <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
-        android:key="fingerprint_success_vib"
-        android:title="@string/fprint_sucess_vib_title"
-        android:summary="@string/fprint_sucess_vib_summary"
-        android:defaultValue="true" />
 
         <com.android.settings.display.DensityPreference
             android:key="density"
