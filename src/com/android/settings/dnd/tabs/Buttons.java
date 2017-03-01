@@ -42,9 +42,11 @@ public class Buttons extends SettingsPreferenceFragment implements
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String CATEGORY_FP = "category_fp";
+    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
     private FingerprintManager mFingerprintManager;
 
+    private SwitchPreference mFpKeystore;
     private SystemSettingSwitchPreference mFingerprintVib;
 
     @Override
@@ -56,11 +58,16 @@ public class Buttons extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
         final PreferenceCategory fpCat = (PreferenceCategory) prefScreen.findPreference(CATEGORY_FP);
         if (!mFingerprintManager.isHardwareDetected()){
             prefScreen.removePreference(fpCat);
+       } else {
+       mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
+              Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+       mFpKeystore.setOnPreferenceChangeListener(this);
+     }
    }
-}
 
     @Override
     protected int getMetricsCategory() {
@@ -79,7 +86,13 @@ public class Buttons extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
+      if (preference == mFpKeystore) {
+          boolean value = (Boolean) objValue;
+          Settings.System.putInt(getActivity().getContentResolver(),
+                   Settings.System.FP_UNLOCK_KEYSTORE, value ? 1 : 0);
         return true;
+    }
+         return false;
     }
 
 }
