@@ -23,11 +23,13 @@
 
     <PreferenceScreen
             android:key="network_traffic_state"
+            android:summary="@string/network_traffic_summary"
             android:fragment="com.android.settings.dnd.fragments.NetworkTraffic"
             android:title="@string/network_traffic_title" />
 
     <PreferenceScreen
             android:key="qs_settings"
+            android:summary="@string/qs_settings_summary"
             android:fragment="com.android.settings.dnd.fragments.QuickSettings"
             android:title="@string/dnd_qssettings_title" />
 
@@ -57,6 +59,7 @@
     <PreferenceScreen
 	android:key="clock_battery"
         android:title="@string/dnd_clock_battery_title"
+        android:summary="@string/clock_battery_summary"
 	android:fragment="com.android.settings.dnd.fragments.ClockBattery" /> 
 
     <cyanogenmod.preference.CMSystemSettingSwitchPreference

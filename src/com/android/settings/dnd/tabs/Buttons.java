@@ -19,6 +19,7 @@ package com.android.settings.dnd.tabs;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v7.preference.PreferenceCategory;
@@ -34,16 +35,32 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.Utils;
 
+import com.android.settings.dnd.Preferences.SystemSettingSwitchPreference;
+
 public class Buttons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+    private static final String CATEGORY_FP = "category_fp";
+
+    private FingerprintManager mFingerprintManager;
+
+    private SystemSettingSwitchPreference mFingerprintVib;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.dnd_buttons_tab);
+        PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
-    }
+
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        final PreferenceCategory fpCat = (PreferenceCategory) prefScreen.findPreference(CATEGORY_FP);
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(fpCat);
+   }
+}
 
     @Override
     protected int getMetricsCategory() {
