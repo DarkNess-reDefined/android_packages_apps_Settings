@@ -48,7 +48,7 @@ public class Animations extends SettingsPreferenceFragment implements
       private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
       private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 	  private static final String KEY_TOAST_ANIMATION = "toast_animation";
-	
+    private static final String POWER_MENU_ANIMATION = "power_menu_animation";
 
       private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
       private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
@@ -70,6 +70,7 @@ public class Animations extends SettingsPreferenceFragment implements
 	  private ListPreference mToastAnimation;
       private ListPreference mListViewAnimation;
       private ListPreference mListViewInterpolator;
+    private ListPreference mPowerMenuAnimation;
 	  private ListPreference mScrollingCachePref;
   
       private int[] mAnimations;
@@ -188,6 +189,13 @@ public class Animations extends SettingsPreferenceFragment implements
           mListViewInterpolator.setOnPreferenceChangeListener(this);
           mListViewInterpolator.setEnabled(listviewanimation > 0);
 
+        mPowerMenuAnimation = (ListPreference) findPreference(POWER_MENU_ANIMATION);
+        int powermenuanimation = Settings.System.getInt(getContentResolver(),
+                Settings.System.POWER_MENU_ANIMATION, 0);
+        mPowerMenuAnimation.setValue(String.valueOf(powermenuanimation));
+        mPowerMenuAnimation.setSummary(mPowerMenuAnimation.getEntry());
+        mPowerMenuAnimation.setOnPreferenceChangeListener(this);
+
 	     mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
          mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
                 SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
@@ -258,6 +266,13 @@ public class Animations extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LISTVIEW_INTERPOLATOR, value);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;
+        } else if (preference == mPowerMenuAnimation) {
+            int value = Integer.parseInt((String) newValue);
+            int index = mPowerMenuAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.POWER_MENU_ANIMATION, value);
+            mPowerMenuAnimation.setSummary(mPowerMenuAnimation.getEntries()[index]);
             return true;
 		 } else if (preference == mScrollingCachePref) {
             if (newValue != null) {
