@@ -53,6 +53,7 @@
    <string name="hardware_keys_settings_summary">Control hardware keys action</string>
    <string name="dnd_power_menu_title">Power Menu</string>
    <string name="power_menu_summary">Customize power menu panel</string>
+   <string name="lockscreen_shortcuts_category">LockScreen</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
