@@ -594,4 +594,9 @@
     <string name="force_authorize_substratum_packages_title">Allow theme apps from unknown sources</string>
     <string name="force_authorize_substratum_packages_summary">Force authorize every theme app</string>
 
+    <!-- Screen record chord behavior -->
+    <string name="screen_record_chord_title">Power + volume up behavior</string>
+    <string name="screen_record_chord_screenrecord">Start screen recording</string>
+    <string name="screen_record_chord_selscreenshot">Take screenshot of selectable area</string>
+
 </resources>

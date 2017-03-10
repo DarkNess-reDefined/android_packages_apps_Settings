@@ -40,12 +40,14 @@ import com.android.settings.dnd.Preferences.SystemSettingSwitchPreference;
 public class Buttons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String SCREENRECORD_CHORD_TYPE = "screenrecord_chord_type";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String CATEGORY_FP = "category_fp";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
     private FingerprintManager mFingerprintManager;
 
+    private ListPreference mScreenrecordChordType;
     private SwitchPreference mFpKeystore;
     private SystemSettingSwitchPreference mFingerprintVib;
 
@@ -56,6 +58,11 @@ public class Buttons extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.dnd_buttons_tab);
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+        int recordChordValue = Settings.System.getInt(resolver,
+                Settings.System.SCREENRECORD_CHORD_TYPE, 0);
+        mScreenrecordChordType = initActionList(SCREENRECORD_CHORD_TYPE,
+                recordChordValue);
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
@@ -74,6 +81,36 @@ public class Buttons extends SettingsPreferenceFragment implements
         return MetricsEvent.REDEFINITION;
     }
 
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        final String key = preference.getKey();
+      if (preference == mFpKeystore) {
+          boolean value = (Boolean) newValue;
+          Settings.System.putInt(getActivity().getContentResolver(),
+                   Settings.System.FP_UNLOCK_KEYSTORE, value ? 1 : 0);
+        return true;
+        } else if  (preference == mScreenrecordChordType) {
+            handleActionListChange(mScreenrecordChordType, newValue,
+                    Settings.System.SCREENRECORD_CHORD_TYPE);
+            return true;
+    }
+         return false;
+    }
+
+    private ListPreference initActionList(String key, int value) {
+        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
+        list.setValue(Integer.toString(value));
+        list.setSummary(list.getEntry());
+        list.setOnPreferenceChangeListener(this);
+        return list;
+    }
+
+    private void handleActionListChange(ListPreference pref, Object newValue, String setting) {
+        String value = (String) newValue;
+        int index = pref.findIndexOfValue(value);
+        pref.setSummary(pref.getEntries()[index]);
+        Settings.System.putInt(getActivity().getContentResolver(), setting, Integer.valueOf(value));
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -82,17 +119,6 @@ public class Buttons extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-      if (preference == mFpKeystore) {
-          boolean value = (Boolean) objValue;
-          Settings.System.putInt(getActivity().getContentResolver(),
-                   Settings.System.FP_UNLOCK_KEYSTORE, value ? 1 : 0);
-        return true;
-    }
-         return false;
     }
 
 }

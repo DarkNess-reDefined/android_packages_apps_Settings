@@ -42,6 +42,12 @@
             android:summary="@string/navigation_bar_summary"
             android:fragment="com.android.settings.dnd.fragments.NavbarSettings" />
 
+        <ListPreference
+            android:key="screenrecord_chord_type"
+            android:title="@string/screen_record_chord_title"
+            android:entries="@array/screen_record_chord_entries"
+            android:entryValues="@array/screen_record_chord_values" />
+
        <PreferenceCategory
             android:key="category_fp"
             android:title="@string/fp_category_title">
