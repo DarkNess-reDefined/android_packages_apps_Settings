@@ -74,11 +74,6 @@
             android:summary="@string/button_wake_summary"
             android:defaultValue="false" />
 
-        <cyanogenmod.preference.CMSecureSettingSwitchPreference
-            android:key="kill_app_longpress_back"
-            android:title="@string/kill_app_longpress_back"
-            android:summary="@string/kill_app_longpress_back_summary"/>
-
         <com.android.settings.dnd.Preferences.ActionPreference
             android:key="hwkeys_button_back_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"
