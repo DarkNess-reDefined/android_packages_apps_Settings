@@ -41,6 +41,12 @@
            android:title="@string/bluetooth_battery_title"
            android:summary="@string/bluetooth_battery_summary"
            android:defaultValue="false" />
+
+        <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
+            android:key="data_activity_arrows"
+            android:title="@string/data_wifi_activity_arrows_title"
+            android:summary="@string/data_wifi_activity_arrows_summary"
+            android:defaultValue="true"/>
   
       </PreferenceCategory>
 

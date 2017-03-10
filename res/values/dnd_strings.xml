@@ -599,4 +599,8 @@
     <string name="screen_record_chord_screenrecord">Start screen recording</string>
     <string name="screen_record_chord_selscreenshot">Take screenshot of selectable area</string>
 
+    <!-- Data/Wifi activity arrows -->
+    <string name="data_wifi_activity_arrows_title">Show data/wifi activity</string>
+    <string name="data_wifi_activity_arrows_summary">Display data/wifi activity arrows</string>
+
 </resources>
