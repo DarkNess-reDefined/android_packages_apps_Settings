@@ -604,4 +604,12 @@
     <string name="data_wifi_activity_arrows_title">Show data/wifi activity</string>
     <string name="data_wifi_activity_arrows_summary">Display data/wifi activity arrows</string>
 
+    <!-- OmniJaws -->
+    <string name="qs_omnijaws_category">Weather QS tile</string>
+    <string name="weather_config_title">Weather settings</string>
+    <string name="weather_config_summary"></string>
+    <string name="header_weather_title">Header view weather</string>
+    <string name="header_weather_summary">Enable notification panel header weather display</string>
+    <string name="weather_icon_pack_title">Condition icon pack</string>
+
 </resources>

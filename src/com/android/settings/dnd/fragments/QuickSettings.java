@@ -11,6 +11,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
@@ -30,8 +31,11 @@ import com.android.settings.dnd.Preferences.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import cyanogenmod.preference.CMSystemSettingListPreference;
+import com.android.internal.util.dnd.PackageUtils;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import java.util.List;
+import java.util.ArrayList;
 
 public class QuickSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -41,12 +45,19 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
     private static final String PREF_COLUMNS = "qs_columns";
+    private static final String CATEGORY_WEATHER = "weather_category";
+    private static final String WEATHER_ICON_PACK = "weather_icon_pack";
+    private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
+    private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
+    private static final String CHRONUS_ICON_PACK_INTENT = "com.dvtonder.chronus.ICON_PACK";
 
     private CMSystemSettingListPreference mQuickPulldown;
+    private ListPreference mWeatherIconPack;
     private ListPreference mSysuiQqsCount;
     private ListPreference mRowsPortrait;
     private ListPreference mRowsLandscape;
     private ListPreference mQsColumns;
+    private PreferenceCategory mWeatherCategory;
 
 
     @Override
@@ -61,6 +72,7 @@ public class QuickSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.dnd_qssettings);
 
         final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefSet = getPreferenceScreen();
 
         mQuickPulldown = (CMSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mSysuiQqsCount = (ListPreference) findPreference(PREF_SYSUI_QQS_COUNT);
@@ -91,6 +103,36 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQsColumns.setValue(String.valueOf(columnsQs));
         mQsColumns.setSummary(mQsColumns.getEntry());
         mQsColumns.setOnPreferenceChangeListener(this);
+
+        mWeatherCategory = (PreferenceCategory) findPreference(CATEGORY_WEATHER);
+        if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
+            prefSet.removePreference(mWeatherCategory);
+        } else {
+            String settingJawsPackage = Settings.System.getString(getContentResolver(),
+                    Settings.System.OMNIJAWS_WEATHER_ICON_PACK);
+            if (settingJawsPackage == null) {
+                settingJawsPackage = DEFAULT_WEATHER_ICON_PACKAGE;
+            }
+            mWeatherIconPack = (ListPreference) findPreference(WEATHER_ICON_PACK);
+
+            List<String> jawsentries = new ArrayList<String>();
+            List<String> jawsvalues = new ArrayList<String>();
+            getAvailableWeatherIconPacks(jawsentries, jawsvalues);
+            mWeatherIconPack.setEntries(jawsentries.toArray(new String[jawsentries.size()]));
+            mWeatherIconPack.setEntryValues(jawsvalues.toArray(new String[jawsvalues.size()]));
+
+            int jawsvalueIndex = mWeatherIconPack.findIndexOfValue(settingJawsPackage);
+            if (jawsvalueIndex == -1) {
+                // no longer found
+                settingJawsPackage = DEFAULT_WEATHER_ICON_PACKAGE;
+                Settings.System.putString(getContentResolver(),
+                        Settings.System.OMNIJAWS_WEATHER_ICON_PACK, settingJawsPackage);
+                jawsvalueIndex = mWeatherIconPack.findIndexOfValue(settingJawsPackage);
+            }
+            mWeatherIconPack.setValueIndex(jawsvalueIndex >= 0 ? jawsvalueIndex : 0);
+            mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
+            mWeatherIconPack.setOnPreferenceChangeListener(this);
+        }
      }
 
     private void updatePulldownSummary(int value) {
@@ -142,7 +184,52 @@ public class QuickSettings extends SettingsPreferenceFragment
                     Settings.Secure.QS_COLUMNS, intValue);
             preference.setSummary(mQsColumns.getEntries()[index]);
             return true;
+        } else if (preference == mWeatherIconPack) {
+            String value = (String) newValue;
+            Settings.System.putString(getContentResolver(),
+                    Settings.System.OMNIJAWS_WEATHER_ICON_PACK, value);
+            int valueIndex = mWeatherIconPack.findIndexOfValue(value);
+            mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
+            return true;
         }
         return false;
   }
+
+    private boolean isOmniJawsServiceInstalled() {
+        return PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getActivity());
+    }
+
+    private void getAvailableWeatherIconPacks(List<String> entries, List<String> values) {
+        Intent i = new Intent();
+        PackageManager packageManager = getPackageManager();
+        i.setAction("org.omnirom.WeatherIconPack");
+        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
+            String packageName = r.activityInfo.packageName;
+            if (packageName.equals(DEFAULT_WEATHER_ICON_PACKAGE)) {
+                values.add(0, r.activityInfo.name);
+            } else {
+                values.add(r.activityInfo.name);
+            }
+            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            if (label == null) {
+                label = r.activityInfo.packageName;
+            }
+            if (packageName.equals(DEFAULT_WEATHER_ICON_PACKAGE)) {
+                entries.add(0, label);
+            } else {
+                entries.add(label);
+            }
+        }
+        i = new Intent(Intent.ACTION_MAIN);
+        i.addCategory(CHRONUS_ICON_PACK_INTENT);
+        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
+            String packageName = r.activityInfo.packageName;
+            values.add(packageName + ".weather");
+            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            if (label == null) {
+                label = r.activityInfo.packageName;
+            }
+            entries.add(label);
+        }
+    }
 }
