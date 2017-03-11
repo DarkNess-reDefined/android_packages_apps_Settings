@@ -3137,6 +3137,20 @@
              </intent-filter>
          </activity>
 
+        <!-- Quick settings -->
+        <activity android:name="Settings$QuickSettingsSettingsActivity"
+                android:label="@string/dnd_qssettings_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.dnd.fragments.QuickSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@string/dnd_qssettings_title" />
+        </activity>
+
         <activity android:name="Settings$MagiskActivity"
             android:label="@string/magisk_title"
             android:icon="@drawable/ic_settings_magisk"
