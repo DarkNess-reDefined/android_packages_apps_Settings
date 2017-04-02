@@ -613,4 +613,8 @@
     <string name="header_weather_summary">Enable notification panel header weather display</string>
     <string name="weather_icon_pack_title">Condition icon pack</string>
 
+    <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Show roaming indicator</string>
+    <string name="roaming_indicator_icon_summary">Display roaming indicator in signal icon when in roaming mode</string>
+
 </resources>
