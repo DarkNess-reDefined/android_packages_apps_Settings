@@ -7652,7 +7652,7 @@
     <string name="developer_density_summary"><xliff:g name="count" example="320">%d</xliff:g> dp</string>
 
     <!-- Title of developer options to set the smallest width of the screen [CHAR LIMIT=60]-->
-    <string name="developer_smallest_width">Smallest width</string>
+    <string name="developer_smallest_width">Custom density</string>
 
     <!-- Message shown when there are no premium SMS apps [CHAR LIMIT=NONE] -->
     <string name="premium_sms_none">No installed apps have requested Premium SMS access</string>
