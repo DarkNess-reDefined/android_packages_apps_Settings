@@ -44,6 +44,12 @@
             android:summary="@string/media_art_summary"
             android:defaultValue="true" />
 
+        <com.android.settings.dnd.Preferences.SecureSettingSwitchPreference
+               android:key="lockscreen_enable_qs"
+               android:title="@string/lockscreen_enable_qs_title"
+               android:summary="@string/lockscreen_enable_qs_summary"
+               android:defaultValue="true" />
+
      </PreferenceCategory>
 
 </PreferenceScreen>
