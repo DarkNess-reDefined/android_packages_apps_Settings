@@ -42,6 +42,7 @@ import com.android.settings.dnd.tabs.Ui;
 import com.android.settings.dnd.tabs.Buttons;
 import com.android.settings.dnd.tabs.Misc;
 import com.android.settings.dnd.tabs.Lockscreen;
+import com.android.settings.dnd.tabs.Panels;
 
 import com.android.settings.dnd.PagerSlidingTabStrip;
 
@@ -101,7 +102,8 @@ public class MainSettings extends SettingsPreferenceFragment {
             frags[1] = new Ui();
 	    frags[2] = new Buttons();
             frags[3] = new Lockscreen();
-            frags[4] = new Misc();
+            frags[4] = new Panels();
+            frags[5] = new Misc();
         }
 
         @Override
@@ -127,6 +129,7 @@ public class MainSettings extends SettingsPreferenceFragment {
             getString(R.string.dnd_ui_title),
             getString(R.string.dnd_buttons_title),
             getString(R.string.dnd_lockscreen_title),
+	    getString(R.string.dnd_panels_title),
             getString(R.string.dnd_misc_title)};
         return titleString;
     }

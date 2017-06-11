@@ -34,6 +34,7 @@
    <string name="dnd_buttons_title">Buttons</string>
    <string name="dnd_misc_title">Miscellaneous</string>
    <string name="dnd_lockscreen_title">Lockscreen</string>
+   <string name="dnd_panels_title">Panels</string>
 
    <!-- OTA -->
    <string name="slimota_title">DarkNess Updates</string>
