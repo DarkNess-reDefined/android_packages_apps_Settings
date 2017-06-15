@@ -76,7 +76,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_SAFETY_LEGAL = "safetylegal";
     private static final String KEY_MBN_VERSION = "mbn_version";
-    private static final String KEY_MOD_VERSION = "mod_version";
+    private static final String KEY_DND_MOD_VERSION = "dnd_mod_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_QGP_VERSION = "qgp_version";
     private static final String PROPERTY_QGP_VERSION = "persist.qgp.version";
@@ -132,8 +132,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
-	setValueSummary(KEY_MOD_VERSION, "ro.modversion");
-	findPreference(KEY_MOD_VERSION).setEnabled(true);
+	setValueSummary(KEY_DND_MOD_VERSION, "ro.mod.version");
+	findPreference(KEY_DND_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         setStringSummary(KEY_KERNEL_VERSION, getFormattedKernelVersion());
         findPreference(KEY_KERNEL_VERSION).setEnabled(true);
