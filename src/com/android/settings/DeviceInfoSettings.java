@@ -31,6 +31,7 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
+import android.support.v7.preference.PreferenceScreen;
 import android.telephony.CarrierConfigManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -53,6 +54,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.android.internal.util.dnd.PackageUtils;
 
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
@@ -86,7 +89,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_DEVICE_PROCESSOR = "device_processor";
+    private static final String KEY_OTA = "slimota";
+    private static final String KEY_OTA_PACKAGE_NAME = "com.fusionjack.slimota";
 
+    private PreferenceScreen mOTA;
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
     long[] mHits = new long[3];
@@ -194,6 +200,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         removePreferenceIfActivityMissing(
                 "safety_info", "android.settings.SHOW_SAFETY_AND_REGULATORY_INFO");
+
+        mOTA = (PreferenceScreen) findPreference(KEY_OTA);
+        String buildtype = SystemProperties.get("ro.dnd.releasetype","unofficial");
+        if (!buildtype.equalsIgnoreCase("official") || !PackageUtils.isAppInstalled(getActivity(), KEY_OTA_PACKAGE_NAME)) {
+            getPreferenceScreen().removePreference(mOTA);
+        }
     }
 
     @Override
