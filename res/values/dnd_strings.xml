@@ -36,6 +36,7 @@
 
    <!-- OTA -->
    <string name="slimota_title">DarkNess Updates</string>
+   <string name="slimota_summary">Get latest build</string>
 
    <!-- Strings -->
    <string name="general_statusbar">General</string>

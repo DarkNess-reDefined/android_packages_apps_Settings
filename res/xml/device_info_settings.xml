@@ -23,13 +23,14 @@
                           android:enabled="false"
                           android:layout="@layout/dnd_logo_row" />		
 
-        <!-- OTA -->
-        <PreferenceScreen
-               android:key="slimota"
-               android:title="@string/slimota_title" >
-               <intent
-                       android:action="android.intent.action.MAIN"
-                      android:targetPackage="com.fusionjack.slimota"
+         <!-- OTA -->
+          <PreferenceScreen
+                 android:key="slimota"
+               android:title="@string/slimota_title"
+	       android:summary="@string/slimota_summary">
+                 <intent
+                         android:action="android.intent.action.MAIN"
+                       android:targetPackage="com.fusionjack.slimota"
                        android:targetClass="com.fusionjack.slimota.MainActivity" />
         </PreferenceScreen>
 
