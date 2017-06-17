@@ -30,7 +30,7 @@
    <string name="dnd_title">reDefinition Arena</string>
    <string name="dnd_summary_title">reDefine your device</string>
    <string name="dnd_statusbar_title">Status Bar</string>
-   <string name="dnd_ui_title">Ui</string>
+   <string name="dnd_ui_title">User Interface</string>
    <string name="dnd_buttons_title">Buttons</string>
    <string name="dnd_misc_title">Misc</string>
 
@@ -40,6 +40,7 @@
 
    <!-- Strings -->
    <string name="general_statusbar">General</string>
+   <string name="general_statusbar_summary">Some common toggles</string>
    <string name="general">General</string>
    <string name="dnd_notification_drawer_title">Notification Drawer</string>
    <string name="dnd_notification_drawer_title">Notification Drawer</string>
