@@ -643,4 +643,8 @@
     <string name="lockscreen_enable_qs_title">Quick settings</string>
     <string name="lockscreen_enable_qs_summary">Allow accessing quick settings and swipe shortcuts on secure lock screen</string>
 
+    <!-- Camera shutter sound -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
+    <string name="camera_sounds_summary">Disabling may not work on 3rd party camera apps and in HDR+ mode</string>
+
 </resources>

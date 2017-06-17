@@ -24,6 +24,13 @@
         android:summary="@string/screenshot_sound_summary"
         android:defaultValue="true" />
 
+    <!-- Camera shutter -->
+    <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
+            android:key="camera_sounds"
+            android:title="@string/camera_sounds_title"
+            android:summary="@string/camera_sounds_summary"
+            android:defaultValue="true" />
+
     <com.android.settings.dnd.Preferences.SystemSettingSwitchPreference
         android:key="show_su_indicator"
         android:title="@string/show_su_indicator_title"
