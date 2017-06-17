@@ -19,6 +19,9 @@ package com.android.settings.dnd.tabs;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.hardware.fingerprint.FingerprintManager;
+import android.os.Bundle;
+import android.os.UserHandle;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v7.preference.PreferenceCategory;
@@ -36,56 +39,41 @@ import com.android.settings.Utils;
 
 import com.android.settings.dnd.Preferences.SystemSettingSwitchPreference;
 
-public class Buttons extends SettingsPreferenceFragment implements
+public class Lockscreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+    private static final String TAG = "Lockscreen";
 
-    private static final String SCREENRECORD_CHORD_TYPE = "screenrecord_chord_type";
+    private static final String CATEGORY_FP = "category_fp";
+    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
-    private ListPreference mScreenrecordChordType;
+    private FingerprintManager mFingerprintManager;
+
+    private SwitchPreference mFpKeystore;
+    private SystemSettingSwitchPreference mFingerprintVib;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.dnd_buttons_tab);
+        addPreferencesFromResource(R.xml.dnd_lockscreen_tab);
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        int recordChordValue = Settings.System.getInt(resolver,
-                Settings.System.SCREENRECORD_CHORD_TYPE, 0);
-        mScreenrecordChordType = initActionList(SCREENRECORD_CHORD_TYPE,
-                recordChordValue);
-
-   }
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
+        final PreferenceCategory fpCat = (PreferenceCategory) prefScreen.findPreference(CATEGORY_FP);
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(fpCat);
+       } else {
+       mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
+              Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+       mFpKeystore.setOnPreferenceChangeListener(this);
+     }
+    }
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.REDEFINITION;
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final String key = preference.getKey();
-        if  (preference == mScreenrecordChordType) {
-            handleActionListChange(mScreenrecordChordType, newValue,
-                    Settings.System.SCREENRECORD_CHORD_TYPE);
-            return true;
-    }
-         return false;
-    }
-
-    private ListPreference initActionList(String key, int value) {
-        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
-        list.setValue(Integer.toString(value));
-        list.setSummary(list.getEntry());
-        list.setOnPreferenceChangeListener(this);
-        return list;
-    }
-
-    private void handleActionListChange(ListPreference pref, Object newValue, String setting) {
-        String value = (String) newValue;
-        int index = pref.findIndexOfValue(value);
-        pref.setSummary(pref.getEntries()[index]);
-        Settings.System.putInt(getActivity().getContentResolver(), setting, Integer.valueOf(value));
     }
 
     @Override
@@ -96,6 +84,17 @@ public class Buttons extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        final String key = preference.getKey();
+      if (preference == mFpKeystore) {
+          boolean value = (Boolean) newValue;
+          Settings.System.putInt(getActivity().getContentResolver(),
+                   Settings.System.FP_UNLOCK_KEYSTORE, value ? 1 : 0);
+            return true;
+    }
+         return false;
     }
 
 }

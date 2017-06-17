@@ -33,6 +33,7 @@
    <string name="dnd_ui_title">User Interface</string>
    <string name="dnd_buttons_title">Buttons</string>
    <string name="dnd_misc_title">Misc</string>
+   <string name="dnd_lockscreen_title">Lockscreen</string>
 
    <!-- OTA -->
    <string name="slimota_title">DarkNess Updates</string>
