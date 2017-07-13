@@ -12,10 +12,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<style name="TextAppearance.PagerTabsSystemSettings" parent="@android:style/TextAppearance.DeviceDefault.Small">
+    <style name="TextAppearance.PagerTabsSystemSettings" parent="@android:style/TextAppearance.DeviceDefault.Small">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="Theme.SmartBar.Dialog" parent="@*android:style/Theme.Material.Light.Dialog.Alert" />
 
 </resources>
