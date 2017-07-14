@@ -44,6 +44,13 @@
         android:entryValues="@array/smartbar_button_animation_values"
         android:summary="@string/smartbar_button_animation_summary" />
 
+    <ListPreference
+        android:key="smartbar_longpress_delay"
+        android:title="@string/smartbar_longpress_delay_title"
+        android:entries="@array/smartbar_longpress_delay_entries"
+        android:entryValues="@array/smartbar_longpress_delay_values"
+        android:summary="@string/smartbar_longpress_delay_summary" />
+
     <com.android.settings.dnd.Preferences.SecureSettingSwitchPreference
         android:key="one_handed_mode_ui"
         android:title="@string/one_handed_mode_title"
