@@ -706,5 +706,9 @@
     <string name="doze_notification_color_invert_title">Notification inversion</string>
     <string name="doze_notification_color_invert_summary_off">Notifications will not be inverted. Use for dark themes.</string>
     <string name="doze_notification_color_invert_summary_on">Notifications will be inverted. Use for light/stock theme.</string>
+ 
+   <!-- setting: show CPU info--> 
+    <string name="show_cpu_info">Show CPU info</string> 
+    <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string> 
 
 </resources>
