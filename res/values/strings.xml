@@ -7981,4 +7981,8 @@
     <string name="systemui_recents_mem_display_summaryOn">RAM bar enabled</string>
     <string name="systemui_recents_mem_display_summaryOff">RAM bar disabled</string>
 
+    <!-- Touchscreen gesture settings -->
+    <string name="touchscreen_gesture_settings_title">Touchscreen gestures</string>
+    <string name="touchscreen_gesture_settings_summary">Perform various touchscreen gestures for quick actions</string>
+
 </resources>
