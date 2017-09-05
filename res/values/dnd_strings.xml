@@ -31,4 +31,7 @@
     <!-- Dummy string needed to hide SuperSU from launcher, no need to translate -->
     <string name="supersu_title">SuperSU</string>
 
+    <!-- About phone screen, device maintainer name -->
+    <string name="device_maintainer">Maintainer</string>
+
 </resources>
