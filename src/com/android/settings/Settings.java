@@ -191,4 +191,7 @@ public class Settings extends SettingsActivity {
     public static class UserAndAccountDashboardActivity extends SettingsActivity {}
     public static class SystemDashboardActivity extends SettingsActivity {}
 
+    // DarkNess-reDefined Additions.
+    public static class ArenaSettingsActivity extends SettingsActivity {}
+
 }
