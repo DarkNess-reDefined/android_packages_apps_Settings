@@ -31,9 +31,11 @@ import com.android.settings.deviceinfo.AdditionalSystemUpdatePreferenceControlle
 import com.android.settings.deviceinfo.BasebandVersionPreferenceController;
 import com.android.settings.deviceinfo.BuildNumberPreferenceController;
 import com.android.settings.deviceinfo.DeviceModelPreferenceController;
+import com.android.settings.deviceinfo.BuildDatePreferenceController;
 import com.android.settings.deviceinfo.FccEquipmentIdPreferenceController;
 import com.android.settings.deviceinfo.FeedbackPreferenceController;
 import com.android.settings.deviceinfo.FirmwareVersionPreferenceController;
+import com.android.settings.deviceinfo.DNDVersionPreferenceController;
 import com.android.settings.deviceinfo.KernelVersionPreferenceController;
 import com.android.settings.deviceinfo.ManualPreferenceController;
 import com.android.settings.deviceinfo.RegulatoryInfoPreferenceController;
@@ -125,6 +127,8 @@ public class DeviceInfoSettings extends DashboardFragment implements Indexable {
         controllers.add(new KernelVersionPreferenceController(context));
         controllers.add(new BasebandVersionPreferenceController(context));
         controllers.add(new FirmwareVersionPreferenceController(context, lifecycle));
+        controllers.add(new DNDVersionPreferenceController(context, lifecycle));
+        controllers.add(new BuildDatePreferenceController(context));
         controllers.add(new RegulatoryInfoPreferenceController(context));
         controllers.add(new DeviceModelPreferenceController(context, fragment));
         controllers.add(new SecurityPatchPreferenceController(context));
