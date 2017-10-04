@@ -26,11 +26,9 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </Preference>
 
-        <!-- LineageOS updates -->
-        <org.lineageos.internal.preference.deviceinfo.LineageUpdatesPreference
-                android:key="lineage_updates"
-                lineage:requiresOwner="true"
-                lineage:requiresPackage="org.lineageos.updater" />
+        <PreferenceScreen android:key="dnd_logo"
+                          android:enabled="false"
+                          android:layout="@layout/dnd_logo_row" />		
 
         <!-- Device status - launches activity -->
         <Preference android:key="status_info"
