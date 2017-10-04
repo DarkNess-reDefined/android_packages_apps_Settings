@@ -25,6 +25,10 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </Preference>
 
+        <PreferenceScreen android:key="dnd_logo"
+                          android:enabled="false"
+                          android:layout="@layout/dnd_logo_row" />		
+
         <!-- Device status - launches activity -->
         <Preference android:key="status_info"
                 android:title="@string/device_status"
