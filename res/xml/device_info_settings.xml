@@ -29,6 +29,15 @@
                           android:enabled="false"
                           android:layout="@layout/dnd_logo_row" />		
 
+        <!-- About Team Darkness -->
+        <Preference android:key="about_td"
+                    android:title="@string/about_td_title"
+                    android:summary="@string/about_td_title_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.about.td"
+                    android:targetClass="com.about.td.Activitys.LaunchActivity" />
+        </Preference>
+
         <!-- DND version -->
         <Preference android:key="dnd_version"
                 android:title="@string/dnd_version"
